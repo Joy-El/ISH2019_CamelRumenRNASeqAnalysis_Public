@@ -1,0 +1,3 @@
+/var/spool/torque/mom_priv/jobs/150526.gromit.SC: line 17: acg_logs/${PBS_JOBID%.*}.$PBS_JOBNAME.log: No such file or directory
+trap: usage: trap [-lp] [[arg] signal_spec ...]
+/var/spool/torque/mom_priv/jobs/150526.gromit.SC: line 37: term: command not found

@@ -1,0 +1,43 @@
+Wed Dec 11 12:34:10 EST 2019
+------------------------------------------------------
+Job is running on node n140.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is batch
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 148560.gromit
+PBS: job name is ISH2019_rawData
+PBS: node file is /var/spool/torque/aux//148560.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+------------------------------------------------------
+Wed Dec 11 12:34:10 EST 2019
+Running ISH2019_rawData 148560.gromit from /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+Transferring files from Working Directory to node's local directory
+Files in node work directory: 
+total 111804927
+drwxr-xr-x 2 jtalbot sfa           6 Nov  9 18:27 pi_MPI
+drwxr-xr-x 7 jtalbot sfa          10 Dec  8 09:13 ISH2019_CamelRumenRNASeqAnalysis
+-rw-r--r-- 1 jtalbot sfa      372689 Dec 11 10:25 sample_R1.fq
+-rw-r--r-- 1 jtalbot sfa 78756786889 Dec 11 10:26 merged_R1.fq
+-rw-r--r-- 1 jtalbot sfa        1068 Dec 11 10:46 header_details.tab
+-rw-r--r-- 1 jtalbot sfa      372689 Dec 11 10:46 sample_R2.fq
+-rw-r--r-- 1 jtalbot sfa 78756786889 Dec 11 10:47 merged_R2.fq
+-rw------- 1 jtalbot sfa  7092781056 Dec 11 11:56 merged_R1.fq.gz
+-rw-r--r-- 1 jtalbot sfa  3770707831 Dec 11 12:34 HI.3512.003.Index_11.1_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  3766530166 Dec 11 12:35 HI.3512.003.Index_11.1_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  3326966068 Dec 11 12:36 HI.3512.003.Index_20.2_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  3310060398 Dec 11 12:37 HI.3512.003.Index_20.2_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  3126322602 Dec 11 12:37 HI.3512.003.Index_21.5_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  3133538211 Dec 11 12:38 HI.3512.003.Index_21.5_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  2930698027 Dec 11 12:39 HI.3512.003.Index_22.3_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  2938178771 Dec 11 12:40 HI.3512.003.Index_22.3_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  3715996257 Dec 11 12:41 HI.3512.003.Index_23.6_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  3808254113 Dec 11 12:42 HI.3512.003.Index_23.6_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  2786072428 Dec 11 12:43 HI.3512.003.Index_25.4_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa  2749839210 Dec 11 12:44 HI.3512.003.Index_25.4_R2.fastq.gz
+***************************
+
+Processing individual FASTQ files
+Processing file: HI.3512.003.Index_11.1_R1.fastq.gz
+Processing file: HI.3512.003.Index_20.2_R1.fastq.gz

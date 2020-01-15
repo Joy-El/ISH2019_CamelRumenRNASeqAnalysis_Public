@@ -1,0 +1,106 @@
+Starting Script: Sun Dec 29 08:49:31 EST 2019
+------------------------------------------------------
+Job is running on node n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+n248.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 151514.gromit
+PBS: job name is ISH2019_buildLib
+PBS: node file is /var/spool/torque/aux//151514.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir = /scratch/151514.gromit
+------------------------------------------------------
+************************************************************************
+Building Libraries
+************************************************************************
+
+Creating base directory for completed libraries
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/
+mkdir: cannot create directory '/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/': File exists
+2
+Sun Dec 29 08:49:31 EST 2019 - Building Prokaryotic rDNA Bowtie Library
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/data/reference_sequences/rDNA
+README.txt
+arb-silva.de_2019-12-23_id760323.tgz
+arb-silva.de_2019-12-23_id760325.tgz
+arb-silva.de_2019-12-23_id760329.tgz
+arb-silva.de_2019-12-24_id760505.tgz
+arb-silva.de_2019-12-24_id760507.tgz
+arb-silva.de_2019-12-24_id760509.tgz
+arb-silva.de_2019-12-24_id760513.tgz
+arb-silva.de_2019-12-24_id760515.tgz
+arb-silva.de_2019-12-24_id760517.tgz
+arb-silva.de_2019-12-24_id760519.tgz
+arb-silva.de_2019-12-24_id760521.tgz
+arb-silva.de_2019-12-25_id760523.tgz
+/scratch/151514.gromit/prokrDNA
+arb-silva.de_2019-12-23_id760323.tgz
+arb-silva.de_2019-12-23_id760325.tgz
+arb-silva.de_2019-12-23_id760329.tgz
+arb-silva.de_2019-12-24_id760505.tgz
+arb-silva.de_2019-12-24_id760507.tgz
+arb-silva.de_2019-12-24_id760509.tgz
+arb-silva.de_2019-12-24_id760513.tgz
+arb-silva.de_2019-12-24_id760515.tgz
+arb-silva.de_2019-12-24_id760517.tgz
+arb-silva.de_2019-12-24_id760519.tgz
+arb-silva.de_2019-12-24_id760521.tgz
+arb-silva.de_2019-12-25_id760523.tgz
+tar: arb-silva.de_2019-12-23_id760329.tgz: Not found in archive
+tar: arb-silva.de_2019-12-24_id760505.tgz: Not found in archive
+tar: arb-silva.de_2019-12-24_id760507.tgz: Not found in archive
+tar: arb-silva.de_2019-12-24_id760509.tgz: Not found in archive
+tar: arb-silva.de_2019-12-24_id760513.tgz: Not found in archive
+tar: arb-silva.de_2019-12-24_id760515.tgz: Not found in archive
+tar: arb-silva.de_2019-12-24_id760517.tgz: Not found in archive
+tar: arb-silva.de_2019-12-24_id760519.tgz: Not found in archive
+tar: arb-silva.de_2019-12-24_id760521.tgz: Not found in archive
+tar: Exiting with failure status due to previous errors
+cat: *.fa*: No such file or directory
+Settings:
+  Output files: "silva_prok_rDNA.*.bt2"
+  Line rate: 6 (line is 64 bytes)
+  Lines per side: 1 (side is 64 bytes)
+  Offset rate: 4 (one in 16)
+  FTable chars: 10
+  Strings: unpacked
+  Max bucket size: default
+  Max bucket size, sqrt multiplier: default
+  Max bucket size, len divisor: 64
+  Difference-cover sample period: 1024
+  Endianness: little
+  Actual local endianness: little
+  Sanity checking: disabled
+  Assertions: disabled
+  Random seed: 1143
+  Sizeofs: void*:8, int:4, long:8, size_t:8
+Input files DNA, FASTA:
+  prokaryote.fa
+Error: could not open prokaryote.fa
+Total time for call to driver() for forward index: 00:00:00
+Error: Encountered internal Bowtie 2 exception (#1)
+Command: /opt/modules/centos7/bowtie2/2.3.4.3/bowtie2-build-s --wrapper basic-0 --seed 1143 --threads 16 -f prokaryote.fa silva_prok_rDNA 
+mv: cannot stat 'silva_prok_rDNA.*': No such file or directory
+Sun Dec 29 08:49:39 EST 2019 - silva_prok_rDNA library complete
+
+************************************************************************
+Finished building libraries
+************************************************************************
+Finished Script: Sun Dec 29 08:49:39 EST 2019

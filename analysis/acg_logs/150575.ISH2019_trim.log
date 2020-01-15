@@ -1,0 +1,76 @@
+Starting Script: Tue Dec 17 14:03:49 EST 2019
+------------------------------------------------------
+Job is running on node n250.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 150575.gromit
+PBS: job name is ISH2019_trim
+PBS: node file is /var/spool/torque/aux//150575.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir = /scratch/150575.gromit
+------------------------------------------------------
+*************************************************************************
+Variable Definition for:
+    - src/trimFQ.sh
+*************************************************************************
+
+Input Files
+R1 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/sample_R1.fq.gz
+
+R2 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/sample_R2.fq.gz
+
+Output Folders
+First FASTQC Run: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/fastqc_pre-trim/
+Trimmed FASTQ: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/
+Second FASTQC Run: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/fastqc_post-trim/
+
+Trimmomatic Details
+Location of adapter FASTA: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/TruSeq3-PE-2.fa
+Trimmomatic Variables:
+ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+
+
+************************************************************************
+Starting FASTQ file processing
+************************************************************************
+
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+Transferring files from Working Directory to node's local directory
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+move to /scratch/150575.gromit
+/scratch/150575.gromit
+Files in node work directory:
+total 0
+
+Adding input files:
+cp: missing destination file operand after '.'
+Try 'cp --help' for more information.
+cp: missing destination file operand after '.'
+Try 'cp --help' for more information.
+cp: missing destination file operand after '.'
+Try 'cp --help' for more information.
+Files in node work directory: 
+total 0
+
+Looping through FASTQ files
+
+List of files: 
+
+
+************************************************************************
+Finished processing FASTQ files
+************************************************************************
+
+Copying remaining files back to working directory
+mv: cannot stat 'readcounts.csv': No such file or directory
+Finished Script: Tue Dec 17 14:03:49 EST 2019

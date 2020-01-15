@@ -1,0 +1,103 @@
+Starting Script: Tue Dec 17 14:18:40 EST 2019
+------------------------------------------------------
+Job is running on node n250.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 150577.gromit
+PBS: job name is ISH2019_trim
+PBS: node file is /var/spool/torque/aux//150577.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir = /scratch/150577.gromit
+------------------------------------------------------
+*************************************************************************
+Variable Definition for:
+    - src/trimFQ.sh
+*************************************************************************
+
+Input Files
+R1 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/sample_R1.fq.gz
+
+R2 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/sample_R2.fq.gz
+
+Output Folders
+First FASTQC Run: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/fastqc_pre-trim/
+Trimmed FASTQ: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/
+Second FASTQC Run: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/fastqc_post-trim/
+
+Trimmomatic Details
+Location of adapter FASTA: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/TruSeq3-PE-2.fa
+Trimmomatic Variables:
+ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+
+
+************************************************************************
+Starting FASTQ file processing
+************************************************************************
+
+Transferring files from Working Directory to node's local directory
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+move to /scratch/150577.gromit
+/scratch/150577.gromit
+Files in node work directory:
+total 0
+
+Adding input files:
+Files in node work directory: 
+total 324
+-rw-r--r-- 1 jtalbot sfa 166873 Dec 17 14:18 sample_R1.fq.gz
+-rw-r--r-- 1 jtalbot sfa 151493 Dec 17 14:18 sample_R2.fq.gz
+-rw-r--r-- 1 jtalbot sfa    259 Dec 17 14:18 TruSeq3-PE-2.fa
+
+Looping through FASTQ files
+
+List of files: sample_R1.fq.gz
+
+Processing sample: sample
+  Item 1: count of reads pre-trim
+  Item 2: FASTQC pre-trim
+Started analysis of sample_R1.fq
+Approx 35% complete for sample_R1.fq
+Approx 75% complete for sample_R1.fq
+Analysis complete for sample_R1.fq
+Started analysis of sample_R2.fq
+Approx 40% complete for sample_R2.fq
+Approx 80% complete for sample_R2.fq
+Analysis complete for sample_R2.fq
+  Item 3: Trim Adapters & Low Qual Reads
+TrimmomaticPE: Started with arguments:
+ sample_R1.fq sample_R2.fq trimmed.paired.sample_R1.fq trimmed.unpaired.sample_R1.fq trimmed.paired.sample_R2.fq trimmed.unpaired.sample_R2.fq ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 2400 Both Surviving: 2175 (90.62%) Forward Only Surviving: 219 (9.12%) Reverse Only Surviving: 5 (0.21%) Dropped: 1 (0.04%)
+TrimmomaticPE: Completed successfully
+  Item 4: FASTQC post-trim
+Started analysis of trimmed.paired.sample_R1.fq
+Approx 45% complete for trimmed.paired.sample_R1.fq
+Approx 90% complete for trimmed.paired.sample_R1.fq
+Analysis complete for trimmed.paired.sample_R1.fq
+Started analysis of trimmed.unpaired.sample_R1.fq
+Analysis complete for trimmed.unpaired.sample_R1.fq
+Started analysis of trimmed.paired.sample_R2.fq
+Approx 45% complete for trimmed.paired.sample_R2.fq
+Approx 90% complete for trimmed.paired.sample_R2.fq
+Analysis complete for trimmed.paired.sample_R2.fq
+Started analysis of trimmed.unpaired.sample_R2.fq
+Analysis complete for trimmed.unpaired.sample_R2.fq
+  Item 5: count of reads post-trim
+  Item 6: zip files & cleanup
+
+************************************************************************
+Finished processing FASTQ files
+************************************************************************
+
+Copying remaining files back to working directory

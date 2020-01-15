@@ -1,0 +1,631 @@
+Starting Script: Tue Dec 31 10:30:59 EST 2019
+------------------------------------------------------
+Job is running on node n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 152074.gromit
+PBS: job name is ISH2019_filterB
+PBS: node file is /var/spool/torque/aux//152074.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir = /scratch/152074.gromit
+------------------------------------------------------
+*************************************************************************
+Variable Definition for:
+    - src/runBowtieFilter.sh
+*************************************************************************
+
+Input Files (FASTA sequences)
+R1 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.paired.sample_R1.fq.gz
+
+R2 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.paired.sample_R2.fq.gz
+
+R0 FASTQ files (unpaired):
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.unpaired.sample_R0.fq.gz
+
+Reference Library
+
+Library files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.rev.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.rev.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.1.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.2.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.3.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.4.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.rev.1.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.rev.2.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.rev.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.rev.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.rev.2.bt2
+
+Bowtie alignment parameters:
+--phred33 --fast-local --sam-no-qname-trunc --threads 16 --seed 1143
+
+Output Folders
+Bowtie Results: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/bowtie/
+Filtered Reads: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/filtered_reads/
+
+************************************************************************
+Filtering reads with Bowtie2
+************************************************************************
+
+Looping through FASTQ files to run bowtie2
+
+Copying bowtie2 libraries to /scratch/152074.gromit
+camel_gDNA.1.bt2
+camel_gDNA.2.bt2
+camel_gDNA.3.bt2
+camel_gDNA.4.bt2
+camel_gDNA.rev.1.bt2
+camel_gDNA.rev.2.bt2
+carp_gDNA.1.bt2
+carp_gDNA.2.bt2
+carp_gDNA.3.bt2
+carp_gDNA.4.bt2
+carp_gDNA.rev.1.bt2
+carp_gDNA.rev.2.bt2
+mosaic_virus_gDNA.1.bt2
+mosaic_virus_gDNA.2.bt2
+mosaic_virus_gDNA.3.bt2
+mosaic_virus_gDNA.4.bt2
+mosaic_virus_gDNA.rev.1.bt2
+mosaic_virus_gDNA.rev.2.bt2
+silva_arch_rDNA.1.bt2
+silva_arch_rDNA.2.bt2
+silva_arch_rDNA.3.bt2
+silva_arch_rDNA.4.bt2
+silva_arch_rDNA.rev.1.bt2
+silva_arch_rDNA.rev.2.bt2
+silva_euk_rDNA.1.bt2
+silva_euk_rDNA.2.bt2
+silva_euk_rDNA.3.bt2
+silva_euk_rDNA.4.bt2
+silva_euk_rDNA.rev.1.bt2
+silva_euk_rDNA.rev.2.bt2
+silva_prok_rDNA.1.bt2l
+silva_prok_rDNA.2.bt2l
+silva_prok_rDNA.3.bt2l
+silva_prok_rDNA.4.bt2l
+silva_prok_rDNA.rev.1.bt2l
+silva_prok_rDNA.rev.2.bt2l
+
+Starting to loop through FASTQ file sets
+*************************************
+  Processing sample sequence files
+    1. copying initial sequence files from /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/
+    2. adjusting filenames to match pattern used in looping
+Binary file camel_gDNA.2.bt2 matches
+Binary file camel_gDNA.3.bt2 matches
+Binary file camel_gDNA.4.bt2 matches
+Binary file camel_gDNA.rev.1.bt2 matches
+Binary file camel_gDNA.rev.2.bt2 matches
+Binary file carp_gDNA.1.bt2 matches
+Binary file carp_gDNA.2.bt2 matches
+Binary file carp_gDNA.3.bt2 matches
+Binary file carp_gDNA.4.bt2 matches
+Binary file carp_gDNA.rev.1.bt2 matches
+Binary file carp_gDNA.rev.2.bt2 matches
+Binary file mosaic_virus_gDNA.1.bt2 matches
+Binary file mosaic_virus_gDNA.2.bt2 matches
+Binary file mosaic_virus_gDNA.3.bt2 matches
+Binary file mosaic_virus_gDNA.4.bt2 matches
+Binary file mosaic_virus_gDNA.rev.1.bt2 matches
+Binary file mosaic_virus_gDNA.rev.2.bt2 matches
+Binary file silva_arch_rDNA.1.bt2 matches
+Binary file silva_arch_rDNA.2.bt2 matches
+Binary file silva_arch_rDNA.3.bt2 matches
+Binary file silva_arch_rDNA.4.bt2 matches
+Binary file silva_arch_rDNA.rev.1.bt2 matches
+Binary file silva_arch_rDNA.rev.2.bt2 matches
+Binary file silva_euk_rDNA.1.bt2 matches
+Binary file silva_euk_rDNA.2.bt2 matches
+Binary file silva_euk_rDNA.3.bt2 matches
+Binary file silva_euk_rDNA.4.bt2 matches
+Binary file silva_euk_rDNA.rev.1.bt2 matches
+Binary file silva_euk_rDNA.rev.2.bt2 matches
+Binary file silva_prok_rDNA.1.bt2l matches
+Binary file silva_prok_rDNA.2.bt2l matches
+Binary file silva_prok_rDNA.3.bt2l matches
+Binary file silva_prok_rDNA.4.bt2l matches
+Binary file silva_prok_rDNA.rev.1.bt2l matches
+Binary file silva_prok_rDNA.rev.2.bt2l matches
+    3a. Filtering against silva_euk_rDNA
+2175 reads; of these:
+  2175 (100.00%) were paired; of these:
+    2175 (100.00%) aligned concordantly 0 times
+    0 (0.00%) aligned concordantly exactly 1 time
+    0 (0.00%) aligned concordantly >1 times
+    ----
+    2175 pairs aligned concordantly 0 times; of these:
+      0 (0.00%) aligned discordantly 1 time
+    ----
+    2175 pairs aligned 0 times concordantly or discordantly; of these:
+      4350 mates make up the pairs; of these:
+        4350 (100.00%) aligned 0 times
+        0 (0.00%) aligned exactly 1 time
+        0 (0.00%) aligned >1 times
+0.00% overall alignment rate
+(ERR): "--passthrough" does not exist or is not a Bowtie 2 index
+Exiting now ...
+    3b. Preparing for next library
+Files in /scratch/152074.gromit/sample/ after bowtie runs:
+total 22436
+-rw-r--r-- 1 jtalbot sfa   665093 Dec 31 10:31 silva_euk_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa   661209 Dec 31 10:31 silva_euk_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa        0 Dec 31 10:31 silva_euk_rDNA-sample_R0a.fq
+-rw-r--r-- 1 jtalbot sfa 21606312 Dec 31 10:31 silva_euk_rDNA-sample_mapped_1.sam
+Files in base dir after bowtie runs (exclude libraries):
+Binary file camel_gDNA.2.bt2 matches
+Binary file camel_gDNA.3.bt2 matches
+Binary file camel_gDNA.4.bt2 matches
+Binary file camel_gDNA.rev.1.bt2 matches
+Binary file camel_gDNA.rev.2.bt2 matches
+Binary file carp_gDNA.1.bt2 matches
+Binary file carp_gDNA.2.bt2 matches
+Binary file carp_gDNA.3.bt2 matches
+Binary file carp_gDNA.4.bt2 matches
+Binary file carp_gDNA.rev.1.bt2 matches
+Binary file carp_gDNA.rev.2.bt2 matches
+Binary file mosaic_virus_gDNA.1.bt2 matches
+Binary file mosaic_virus_gDNA.2.bt2 matches
+Binary file mosaic_virus_gDNA.3.bt2 matches
+Binary file mosaic_virus_gDNA.4.bt2 matches
+Binary file mosaic_virus_gDNA.rev.1.bt2 matches
+Binary file mosaic_virus_gDNA.rev.2.bt2 matches
+Binary file silva_arch_rDNA.1.bt2 matches
+Binary file silva_arch_rDNA.2.bt2 matches
+Binary file silva_arch_rDNA.3.bt2 matches
+Binary file silva_arch_rDNA.4.bt2 matches
+Binary file silva_arch_rDNA.rev.1.bt2 matches
+Binary file silva_arch_rDNA.rev.2.bt2 matches
+Binary file silva_euk_rDNA.1.bt2 matches
+Binary file silva_euk_rDNA.2.bt2 matches
+Binary file silva_euk_rDNA.3.bt2 matches
+Binary file silva_euk_rDNA.4.bt2 matches
+Binary file silva_euk_rDNA.rev.1.bt2 matches
+Binary file silva_euk_rDNA.rev.2.bt2 matches
+Binary file silva_prok_rDNA.1.bt2l matches
+Binary file silva_prok_rDNA.2.bt2l matches
+Binary file silva_prok_rDNA.3.bt2l matches
+Binary file silva_prok_rDNA.4.bt2l matches
+Binary file silva_prok_rDNA.rev.1.bt2l matches
+Binary file silva_prok_rDNA.rev.2.bt2l matches
+cp: cannot stat '/scratch/152074.gromit/sample/silva_euk_rDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/152074.gromit/sample/silva_euk_rDNA-sample_R2.fq': No such file or directory
+cat: /scratch/152074.gromit/sample/silva_euk_rDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_euk_rDNA-sample_R1.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_euk_rDNA-sample_R2.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_euk_rDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_euk_rDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_euk_rDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_euk_rDNA-sample_R0b.fq': No such file or directory
+    4a. Filtering against silva_arch_rDNA
+2175 reads; of these:
+  2175 (100.00%) were paired; of these:
+    2175 (100.00%) aligned concordantly 0 times
+    0 (0.00%) aligned concordantly exactly 1 time
+    0 (0.00%) aligned concordantly >1 times
+    ----
+    2175 pairs aligned concordantly 0 times; of these:
+      0 (0.00%) aligned discordantly 1 time
+    ----
+    2175 pairs aligned 0 times concordantly or discordantly; of these:
+      4350 mates make up the pairs; of these:
+        4350 (100.00%) aligned 0 times
+        0 (0.00%) aligned exactly 1 time
+        0 (0.00%) aligned >1 times
+0.00% overall alignment rate
+(ERR): "--passthrough" does not exist or is not a Bowtie 2 index
+Exiting now ...
+    4b. Preparing for next library
+Files in /scratch/152074.gromit/sample/ after bowtie runs:
+total 14556
+-rw-r--r-- 1 jtalbot sfa   665093 Dec 31 10:31 silva_arch_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa   661209 Dec 31 10:31 silva_arch_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa        0 Dec 31 10:31 silva_arch_rDNA-sample_R0a.fq
+-rw-r--r-- 1 jtalbot sfa 12209847 Dec 31 10:31 silva_arch_rDNA-sample_mapped_1.sam
+-rw-r--r-- 1 jtalbot sfa   665093 Dec 31 10:31 silva_euk_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa   661209 Dec 31 10:31 silva_euk_rDNA-sample_R.2.fq
+Files in base dir after bowtie runs (exclude libraries):
+Binary file camel_gDNA.2.bt2 matches
+Binary file camel_gDNA.3.bt2 matches
+Binary file camel_gDNA.4.bt2 matches
+Binary file camel_gDNA.rev.1.bt2 matches
+Binary file camel_gDNA.rev.2.bt2 matches
+Binary file carp_gDNA.1.bt2 matches
+Binary file carp_gDNA.2.bt2 matches
+Binary file carp_gDNA.3.bt2 matches
+Binary file carp_gDNA.4.bt2 matches
+Binary file carp_gDNA.rev.1.bt2 matches
+Binary file carp_gDNA.rev.2.bt2 matches
+Binary file mosaic_virus_gDNA.1.bt2 matches
+Binary file mosaic_virus_gDNA.2.bt2 matches
+Binary file mosaic_virus_gDNA.3.bt2 matches
+Binary file mosaic_virus_gDNA.4.bt2 matches
+Binary file mosaic_virus_gDNA.rev.1.bt2 matches
+Binary file mosaic_virus_gDNA.rev.2.bt2 matches
+Binary file silva_arch_rDNA.1.bt2 matches
+Binary file silva_arch_rDNA.2.bt2 matches
+Binary file silva_arch_rDNA.3.bt2 matches
+Binary file silva_arch_rDNA.4.bt2 matches
+Binary file silva_arch_rDNA.rev.1.bt2 matches
+Binary file silva_arch_rDNA.rev.2.bt2 matches
+Binary file silva_euk_rDNA.1.bt2 matches
+Binary file silva_euk_rDNA.2.bt2 matches
+Binary file silva_euk_rDNA.3.bt2 matches
+Binary file silva_euk_rDNA.4.bt2 matches
+Binary file silva_euk_rDNA.rev.1.bt2 matches
+Binary file silva_euk_rDNA.rev.2.bt2 matches
+Binary file silva_prok_rDNA.1.bt2l matches
+Binary file silva_prok_rDNA.2.bt2l matches
+Binary file silva_prok_rDNA.3.bt2l matches
+Binary file silva_prok_rDNA.4.bt2l matches
+Binary file silva_prok_rDNA.rev.1.bt2l matches
+Binary file silva_prok_rDNA.rev.2.bt2l matches
+cp: cannot stat '/scratch/152074.gromit/sample/silva_arch_rDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/152074.gromit/sample/silva_arch_rDNA-sample_R2.fq': No such file or directory
+cat: /scratch/152074.gromit/sample/silva_arch_rDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_arch_rDNA-sample_R1.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_arch_rDNA-sample_R2.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_arch_rDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_arch_rDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_arch_rDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_arch_rDNA-sample_R0b.fq': No such file or directory
+    5a. Filtering against silva_prok_rDNA
+2175 reads; of these:
+  2175 (100.00%) were paired; of these:
+    2175 (100.00%) aligned concordantly 0 times
+    0 (0.00%) aligned concordantly exactly 1 time
+    0 (0.00%) aligned concordantly >1 times
+    ----
+    2175 pairs aligned concordantly 0 times; of these:
+      0 (0.00%) aligned discordantly 1 time
+    ----
+    2175 pairs aligned 0 times concordantly or discordantly; of these:
+      4350 mates make up the pairs; of these:
+        4350 (100.00%) aligned 0 times
+        0 (0.00%) aligned exactly 1 time
+        0 (0.00%) aligned >1 times
+0.00% overall alignment rate
+(ERR): "--passthrough" does not exist or is not a Bowtie 2 index
+Exiting now ...
+    5b. Preparing for next library
+Files in /scratch/152074.gromit/sample/ after bowtie runs:
+total 268432
+-rw-r--r-- 1 jtalbot sfa    665093 Dec 31 10:31 silva_arch_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa    661209 Dec 31 10:31 silva_arch_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa    665093 Dec 31 10:31 silva_euk_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa    661209 Dec 31 10:31 silva_euk_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa    665093 Dec 31 10:32 silva_prok_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa    661209 Dec 31 10:32 silva_prok_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa         0 Dec 31 10:31 silva_prok_rDNA-sample_R0a.fq
+-rw-r--r-- 1 jtalbot sfa 270585716 Dec 31 10:32 silva_prok_rDNA-sample_mapped_1.sam
+Files in base dir after bowtie runs (exclude libraries):
+Binary file camel_gDNA.2.bt2 matches
+Binary file camel_gDNA.3.bt2 matches
+Binary file camel_gDNA.4.bt2 matches
+Binary file camel_gDNA.rev.1.bt2 matches
+Binary file camel_gDNA.rev.2.bt2 matches
+Binary file carp_gDNA.1.bt2 matches
+Binary file carp_gDNA.2.bt2 matches
+Binary file carp_gDNA.3.bt2 matches
+Binary file carp_gDNA.4.bt2 matches
+Binary file carp_gDNA.rev.1.bt2 matches
+Binary file carp_gDNA.rev.2.bt2 matches
+Binary file mosaic_virus_gDNA.1.bt2 matches
+Binary file mosaic_virus_gDNA.2.bt2 matches
+Binary file mosaic_virus_gDNA.3.bt2 matches
+Binary file mosaic_virus_gDNA.4.bt2 matches
+Binary file mosaic_virus_gDNA.rev.1.bt2 matches
+Binary file mosaic_virus_gDNA.rev.2.bt2 matches
+Binary file silva_arch_rDNA.1.bt2 matches
+Binary file silva_arch_rDNA.2.bt2 matches
+Binary file silva_arch_rDNA.3.bt2 matches
+Binary file silva_arch_rDNA.4.bt2 matches
+Binary file silva_arch_rDNA.rev.1.bt2 matches
+Binary file silva_arch_rDNA.rev.2.bt2 matches
+Binary file silva_euk_rDNA.1.bt2 matches
+Binary file silva_euk_rDNA.2.bt2 matches
+Binary file silva_euk_rDNA.3.bt2 matches
+Binary file silva_euk_rDNA.4.bt2 matches
+Binary file silva_euk_rDNA.rev.1.bt2 matches
+Binary file silva_euk_rDNA.rev.2.bt2 matches
+Binary file silva_prok_rDNA.1.bt2l matches
+Binary file silva_prok_rDNA.2.bt2l matches
+Binary file silva_prok_rDNA.3.bt2l matches
+Binary file silva_prok_rDNA.4.bt2l matches
+Binary file silva_prok_rDNA.rev.1.bt2l matches
+Binary file silva_prok_rDNA.rev.2.bt2l matches
+cp: cannot stat '/scratch/152074.gromit/sample/silva_prok_rDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/152074.gromit/sample/silva_prok_rDNA-sample_R2.fq': No such file or directory
+cat: /scratch/152074.gromit/sample/silva_prok_rDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_prok_rDNA-sample_R1.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_prok_rDNA-sample_R2.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/silva_prok_rDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_prok_rDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_prok_rDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/silva_prok_rDNA-sample_R0b.fq': No such file or directory
+    6a. Filtering against camel_gDNA
+2175 reads; of these:
+  2175 (100.00%) were paired; of these:
+    2173 (99.91%) aligned concordantly 0 times
+    2 (0.09%) aligned concordantly exactly 1 time
+    0 (0.00%) aligned concordantly >1 times
+    ----
+    2173 pairs aligned concordantly 0 times; of these:
+      0 (0.00%) aligned discordantly 1 time
+    ----
+    2173 pairs aligned 0 times concordantly or discordantly; of these:
+      4346 mates make up the pairs; of these:
+        4341 (99.88%) aligned 0 times
+        4 (0.09%) aligned exactly 1 time
+        1 (0.02%) aligned >1 times
+0.21% overall alignment rate
+(ERR): "--passthrough" does not exist or is not a Bowtie 2 index
+Exiting now ...
+    6b. Preparing for next library
+Files in /scratch/152074.gromit/sample/ after bowtie runs:
+total 7236
+-rw-r--r-- 1 jtalbot sfa  664474 Dec 31 10:32 camel_gDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  660598 Dec 31 10:32 camel_gDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa       0 Dec 31 10:32 camel_gDNA-sample_R0a.fq
+-rw-r--r-- 1 jtalbot sfa 2045145 Dec 31 10:32 camel_gDNA-sample_mapped_1.sam
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:31 silva_arch_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:31 silva_arch_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:31 silva_euk_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:31 silva_euk_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:32 silva_prok_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:32 silva_prok_rDNA-sample_R.2.fq
+Files in base dir after bowtie runs (exclude libraries):
+Binary file camel_gDNA.2.bt2 matches
+Binary file camel_gDNA.3.bt2 matches
+Binary file camel_gDNA.4.bt2 matches
+Binary file camel_gDNA.rev.1.bt2 matches
+Binary file camel_gDNA.rev.2.bt2 matches
+Binary file carp_gDNA.1.bt2 matches
+Binary file carp_gDNA.2.bt2 matches
+Binary file carp_gDNA.3.bt2 matches
+Binary file carp_gDNA.4.bt2 matches
+Binary file carp_gDNA.rev.1.bt2 matches
+Binary file carp_gDNA.rev.2.bt2 matches
+Binary file mosaic_virus_gDNA.1.bt2 matches
+Binary file mosaic_virus_gDNA.2.bt2 matches
+Binary file mosaic_virus_gDNA.3.bt2 matches
+Binary file mosaic_virus_gDNA.4.bt2 matches
+Binary file mosaic_virus_gDNA.rev.1.bt2 matches
+Binary file mosaic_virus_gDNA.rev.2.bt2 matches
+Binary file silva_arch_rDNA.1.bt2 matches
+Binary file silva_arch_rDNA.2.bt2 matches
+Binary file silva_arch_rDNA.3.bt2 matches
+Binary file silva_arch_rDNA.4.bt2 matches
+Binary file silva_arch_rDNA.rev.1.bt2 matches
+Binary file silva_arch_rDNA.rev.2.bt2 matches
+Binary file silva_euk_rDNA.1.bt2 matches
+Binary file silva_euk_rDNA.2.bt2 matches
+Binary file silva_euk_rDNA.3.bt2 matches
+Binary file silva_euk_rDNA.4.bt2 matches
+Binary file silva_euk_rDNA.rev.1.bt2 matches
+Binary file silva_euk_rDNA.rev.2.bt2 matches
+Binary file silva_prok_rDNA.1.bt2l matches
+Binary file silva_prok_rDNA.2.bt2l matches
+Binary file silva_prok_rDNA.3.bt2l matches
+Binary file silva_prok_rDNA.4.bt2l matches
+Binary file silva_prok_rDNA.rev.1.bt2l matches
+Binary file silva_prok_rDNA.rev.2.bt2l matches
+cp: cannot stat '/scratch/152074.gromit/sample/camel_gDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/152074.gromit/sample/camel_gDNA-sample_R2.fq': No such file or directory
+cat: /scratch/152074.gromit/sample/camel_gDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/camel_gDNA-sample_R1.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/camel_gDNA-sample_R2.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/camel_gDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/camel_gDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/camel_gDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/camel_gDNA-sample_R0b.fq': No such file or directory
+    7a. Filtering against carp_gDNA
+2175 reads; of these:
+  2175 (100.00%) were paired; of these:
+    2175 (100.00%) aligned concordantly 0 times
+    0 (0.00%) aligned concordantly exactly 1 time
+    0 (0.00%) aligned concordantly >1 times
+    ----
+    2175 pairs aligned concordantly 0 times; of these:
+      0 (0.00%) aligned discordantly 1 time
+    ----
+    2175 pairs aligned 0 times concordantly or discordantly; of these:
+      4350 mates make up the pairs; of these:
+        4350 (100.00%) aligned 0 times
+        0 (0.00%) aligned exactly 1 time
+        0 (0.00%) aligned >1 times
+0.00% overall alignment rate
+(ERR): "--passthrough" does not exist or is not a Bowtie 2 index
+Exiting now ...
+    7b. Preparing for next library
+Files in /scratch/152074.gromit/sample/ after bowtie runs:
+total 8220
+-rw-r--r-- 1 jtalbot sfa  664474 Dec 31 10:32 camel_gDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  660598 Dec 31 10:32 camel_gDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:33 carp_gDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:33 carp_gDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa       0 Dec 31 10:33 carp_gDNA-sample_R0a.fq
+-rw-r--r-- 1 jtalbot sfa 1713423 Dec 31 10:33 carp_gDNA-sample_mapped_1.sam
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:31 silva_arch_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:31 silva_arch_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:31 silva_euk_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:31 silva_euk_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:32 silva_prok_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:32 silva_prok_rDNA-sample_R.2.fq
+Files in base dir after bowtie runs (exclude libraries):
+Binary file camel_gDNA.2.bt2 matches
+Binary file camel_gDNA.3.bt2 matches
+Binary file camel_gDNA.4.bt2 matches
+Binary file camel_gDNA.rev.1.bt2 matches
+Binary file camel_gDNA.rev.2.bt2 matches
+Binary file carp_gDNA.1.bt2 matches
+Binary file carp_gDNA.2.bt2 matches
+Binary file carp_gDNA.3.bt2 matches
+Binary file carp_gDNA.4.bt2 matches
+Binary file carp_gDNA.rev.1.bt2 matches
+Binary file carp_gDNA.rev.2.bt2 matches
+Binary file mosaic_virus_gDNA.1.bt2 matches
+Binary file mosaic_virus_gDNA.2.bt2 matches
+Binary file mosaic_virus_gDNA.3.bt2 matches
+Binary file mosaic_virus_gDNA.4.bt2 matches
+Binary file mosaic_virus_gDNA.rev.1.bt2 matches
+Binary file mosaic_virus_gDNA.rev.2.bt2 matches
+Binary file silva_arch_rDNA.1.bt2 matches
+Binary file silva_arch_rDNA.2.bt2 matches
+Binary file silva_arch_rDNA.3.bt2 matches
+Binary file silva_arch_rDNA.4.bt2 matches
+Binary file silva_arch_rDNA.rev.1.bt2 matches
+Binary file silva_arch_rDNA.rev.2.bt2 matches
+Binary file silva_euk_rDNA.1.bt2 matches
+Binary file silva_euk_rDNA.2.bt2 matches
+Binary file silva_euk_rDNA.3.bt2 matches
+Binary file silva_euk_rDNA.4.bt2 matches
+Binary file silva_euk_rDNA.rev.1.bt2 matches
+Binary file silva_euk_rDNA.rev.2.bt2 matches
+Binary file silva_prok_rDNA.1.bt2l matches
+Binary file silva_prok_rDNA.2.bt2l matches
+Binary file silva_prok_rDNA.3.bt2l matches
+Binary file silva_prok_rDNA.4.bt2l matches
+Binary file silva_prok_rDNA.rev.1.bt2l matches
+Binary file silva_prok_rDNA.rev.2.bt2l matches
+cp: cannot stat '/scratch/152074.gromit/sample/carp_gDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/152074.gromit/sample/carp_gDNA-sample_R2.fq': No such file or directory
+cat: /scratch/152074.gromit/sample/carp_gDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/carp_gDNA-sample_R1.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/carp_gDNA-sample_R2.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/carp_gDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/carp_gDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/carp_gDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/carp_gDNA-sample_R0b.fq': No such file or directory
+    8a. Filtering against mosaic_virus_gDNA
+2175 reads; of these:
+  2175 (100.00%) were paired; of these:
+    2125 (97.70%) aligned concordantly 0 times
+    49 (2.25%) aligned concordantly exactly 1 time
+    1 (0.05%) aligned concordantly >1 times
+    ----
+    2125 pairs aligned concordantly 0 times; of these:
+      7 (0.33%) aligned discordantly 1 time
+    ----
+    2118 pairs aligned 0 times concordantly or discordantly; of these:
+      4236 mates make up the pairs; of these:
+        4182 (98.73%) aligned 0 times
+        52 (1.23%) aligned exactly 1 time
+        2 (0.05%) aligned >1 times
+3.86% overall alignment rate
+(ERR): "--passthrough" does not exist or is not a Bowtie 2 index
+Exiting now ...
+    8b. Preparing for next library
+Files in /scratch/152074.gromit/sample/ after bowtie runs:
+total 9228
+-rw-r--r-- 1 jtalbot sfa  664474 Dec 31 10:32 camel_gDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  660598 Dec 31 10:32 camel_gDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:33 carp_gDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:33 carp_gDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  649592 Dec 31 10:33 mosaic_virus_gDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  646006 Dec 31 10:33 mosaic_virus_gDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa       0 Dec 31 10:33 mosaic_virus_gDNA-sample_R0a.fq
+-rw-r--r-- 1 jtalbot sfa 1441186 Dec 31 10:33 mosaic_virus_gDNA-sample_mapped_1.sam
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:31 silva_arch_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:31 silva_arch_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:31 silva_euk_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:31 silva_euk_rDNA-sample_R.2.fq
+-rw-r--r-- 1 jtalbot sfa  665093 Dec 31 10:32 silva_prok_rDNA-sample_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  661209 Dec 31 10:32 silva_prok_rDNA-sample_R.2.fq
+Files in base dir after bowtie runs (exclude libraries):
+Binary file camel_gDNA.2.bt2 matches
+Binary file camel_gDNA.3.bt2 matches
+Binary file camel_gDNA.4.bt2 matches
+Binary file camel_gDNA.rev.1.bt2 matches
+Binary file camel_gDNA.rev.2.bt2 matches
+Binary file carp_gDNA.1.bt2 matches
+Binary file carp_gDNA.2.bt2 matches
+Binary file carp_gDNA.3.bt2 matches
+Binary file carp_gDNA.4.bt2 matches
+Binary file carp_gDNA.rev.1.bt2 matches
+Binary file carp_gDNA.rev.2.bt2 matches
+Binary file mosaic_virus_gDNA.1.bt2 matches
+Binary file mosaic_virus_gDNA.2.bt2 matches
+Binary file mosaic_virus_gDNA.3.bt2 matches
+Binary file mosaic_virus_gDNA.4.bt2 matches
+Binary file mosaic_virus_gDNA.rev.1.bt2 matches
+Binary file mosaic_virus_gDNA.rev.2.bt2 matches
+Binary file silva_arch_rDNA.1.bt2 matches
+Binary file silva_arch_rDNA.2.bt2 matches
+Binary file silva_arch_rDNA.3.bt2 matches
+Binary file silva_arch_rDNA.4.bt2 matches
+Binary file silva_arch_rDNA.rev.1.bt2 matches
+Binary file silva_arch_rDNA.rev.2.bt2 matches
+Binary file silva_euk_rDNA.1.bt2 matches
+Binary file silva_euk_rDNA.2.bt2 matches
+Binary file silva_euk_rDNA.3.bt2 matches
+Binary file silva_euk_rDNA.4.bt2 matches
+Binary file silva_euk_rDNA.rev.1.bt2 matches
+Binary file silva_euk_rDNA.rev.2.bt2 matches
+Binary file silva_prok_rDNA.1.bt2l matches
+Binary file silva_prok_rDNA.2.bt2l matches
+Binary file silva_prok_rDNA.3.bt2l matches
+Binary file silva_prok_rDNA.4.bt2l matches
+Binary file silva_prok_rDNA.rev.1.bt2l matches
+Binary file silva_prok_rDNA.rev.2.bt2l matches
+cp: cannot stat '/scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R2.fq': No such file or directory
+cat: /scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R1.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R2.fq: No such file or directory
+wc: /scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/152074.gromit/sample/mosaic_virus_gDNA-sample_R0b.fq': No such file or directory
+    9. Moving final filtered sequences to /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/filtered_reads/
+
+************************************************************************
+Finished filtering sequences
+************************************************************************
+Finished Script: Tue Dec 31 10:33:44 EST 2019

@@ -1,0 +1,102 @@
+Starting Script: Tue Dec 17 13:20:10 EST 2019
+------------------------------------------------------
+Job is running on node n250.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 150537.gromit
+PBS: job name is ISH2019_trim
+PBS: node file is /var/spool/torque/aux//150537.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir =
+------------------------------------------------------
+*************************************************************************
+Variable Definition for:
+    - src/trimFQ.sh
+*************************************************************************
+
+Input Files
+R1 FASTQ files:
+../data/raw_sequences/sample_R1.fq.gz
+
+R2 FASTQ files:
+../data/raw_sequences/sample_R2.fq.gz
+
+Output Folders
+First FASTQC Run: ../results/fastqc_pre-trim/
+Trimmed FASTQ: ../data/trimmed/
+Second FASTQC Run: ../results/fastqc_post-trim/
+
+Trimmomatic Details
+Location of adapter FASTA: ../data/TruSeq3-PE-2.fa
+Trimmomatic Variables:
+ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+
+
+************************************************************************
+Starting FASTQ file processing
+************************************************************************
+
+Transferring files from Working Directory to node's local directory
+Files in node work directory:
+total 19
+drwxr-xr-x 7 jtalbot sfa 10 Dec  8 09:13 ISH2019_CamelRumenRNASeqAnalysis
+
+Adding input files:
+cp: omitting directory '/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/'
+cp: omitting directory '/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/'
+cp: omitting directory '/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/'
+Files in node work directory: 
+total 19
+drwxr-xr-x 7 jtalbot sfa 10 Dec  8 09:13 ISH2019_CamelRumenRNASeqAnalysis
+
+Looping through FASTQ files
+
+Processing sample: ISH2019_CamelRumenRNASeqAnalysis
+gzip: ISH2019_CamelRumenRNASeqAnalysis_R1*.gz: No such file or directory
+gzip: ISH2019_CamelRumenRNASeqAnalysis_R2*.gz: No such file or directory
+  Item 1: count of reads pre-trim
+wc: ISH2019_CamelRumenRNASeqAnalysis_R1.*: No such file or directory
+wc: ISH2019_CamelRumenRNASeqAnalysis_R2.*: No such file or directory
+  Item 2: FASTQC pre-trim
+Skipping 'ISH2019_CamelRumenRNASeqAnalysis_R1.*' which didn't exist, or couldn't be read
+Skipping 'ISH2019_CamelRumenRNASeqAnalysis_R2.*' which didn't exist, or couldn't be read
+cp: cannot stat '*.zip': No such file or directory
+cp: cannot stat '*.html': No such file or directory
+rm: cannot remove '*.zip': No such file or directory
+rm: cannot remove '*.html': No such file or directory
+  Item 3: Trim Adapters & Low Qual Reads
+Usage: 
+       PE [-version] [-threads <threads>] [-phred33|-phred64] [-trimlog <trimLogFile>] [-quiet] [-validatePairs] [-basein <inputBase> | <inputFile1> <inputFile2>] [-baseout <outputBase> | <outputFile1P> <outputFile1U> <outputFile2P> <outputFile2U>] <trimmer1>...
+   or: 
+       SE [-version] [-threads <threads>] [-phred33|-phred64] [-trimlog <trimLogFile>] [-quiet] <inputFile> <outputFile> <trimmer1>...
+   or: 
+       -version
+  Item 4: FASTQC post-trim
+Skipping 'trimmed.paired.ISH2019_CamelRumenRNASeqAnalysis_R1.fq' which didn't exist, or couldn't be read
+Skipping 'trimmed.unpaired.ISH2019_CamelRumenRNASeqAnalysis_R1.fq' which didn't exist, or couldn't be read
+Skipping 'trimmed.paired.ISH2019_CamelRumenRNASeqAnalysis_R2.fq' which didn't exist, or couldn't be read
+Skipping 'trimmed.unpaired.ISH2019_CamelRumenRNASeqAnalysis_R2.fq' which didn't exist, or couldn't be read
+cp: cannot stat '*.zip': No such file or directory
+cp: cannot stat '*.html': No such file or directory
+rm: cannot remove '*.zip': No such file or directory
+rm: cannot remove '*.html': No such file or directory
+  Item 5: count of reads post-trim
+wc: trimmed.paired.ISH2019_CamelRumenRNASeqAnalysis_R1.fq: No such file or directory
+wc: trimmed.unpaired.ISH2019_CamelRumenRNASeqAnalysis_R1.fq: No such file or directory
+wc: trimmed.paired.ISH2019_CamelRumenRNASeqAnalysis_R2.fq: No such file or directory
+wc: trimmed.unpaired.ISH2019_CamelRumenRNASeqAnalysis_R2.fq: No such file or directory
+  Item 6: zip files & cleanup
+gzip: trimmmed.paired.*fq: No such file or directory
+cat: trimmed.unpaired.*R1.fq: No such file or directory
+cat: trimmed.unpaired.*R2.fq: No such file or directory
+rm: cannot remove 'ISH2019_CamelRumenRNASeqAnalysis': Is a directory
+
+************************************************************************
+Finished processing FASTQ files
+************************************************************************
+
+Copying remaining files back to working directory
+Finished Script: Tue Dec 17 13:20:12 EST 2019

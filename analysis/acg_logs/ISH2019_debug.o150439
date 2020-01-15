@@ -1,0 +1,4 @@
+passed PBS directives
+passed module FASTQC load
+passed module trimmomatic load
+passed module load

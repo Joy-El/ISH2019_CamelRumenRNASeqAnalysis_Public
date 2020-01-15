@@ -1,0 +1,212 @@
+######################################################################
+#                                                                    #
+#  Trimmomatic Run                                                   #
+#     1) Run FASTQC on sample to get baseline                        #
+#     2) Run Trimmomatic to remove adapters and low qual bases/reads #
+#     3) Re-run FASTQC for post-trim details                         #
+#     4) Store stats about reads trimmed or dropped                  #
+#                                                                    #
+######################################################################
+
+#####################
+#                   #
+#  PBS directives   #
+#                   #
+#####################
+#PBS -q batch
+#PBS -l procs=1
+#PBS -l walltime=02:00:00
+#PBS -N ISH2019_debug
+#PBS -o acg_logs/${PBS_JOBNAME}.o${PBS_JOBID%.*} # jobID number only
+#PBS -j oe                                       # combine std_err with std_out
+#PBS -m abe                                      # send email at abort, begin, and end (for longer programs)
+#PBS -M joy-el@irisdatasolutions.co              # where to send emails
+
+echo "passed PBS directives"
+
+
+##########################################
+#                                        #
+#  Module Load & Constants Definitions   #
+#                                        #
+##########################################
+
+module load fastqc/0.11.7
+echo "passed module FASTQC load"
+
+module load trimmomatic/0.36
+echo "passed module trimmomatic load"
+
+echo "passed module load"
+
+
+# define input files
+INPUT_PATH='../data/raw_sequences/' # path from home/analysis/ to file location
+#INPUT_R1='HI.3512.003.Index_*_R1.fastq.gz'
+#INPUT_R2='HI.3512.003.Index_*_R2.fastq.gz'
+
+# for testing only (comment out on true run)
+INPUT_R1='sample_R1.fq.gz'
+INPUT_R2='sample_R2.fq.gz'
+
+# define output file locations
+FASTQC_OUT1='../results/fastqc_pre-trim/'
+TRIMMED_OUT='../data/trimmed/' # storing in data as it will be input for next script
+FASTQC_OUT2='../results/fastqc_post-trim/'
+
+echo "attempting to make directory:"
+echo $PBS_O_WORKDIR/$FASTQC_OUT1
+
+mkdir $PBS_O_WORKDIR/$FASTQC_OUT1
+mkdir $PBS_O_WORKDIR/$TRIMMED_OUT
+mkdir $PBS_O_WORKDIR/$FASTQC_OUT2
+
+# define details for trimmomatic trim
+# update to change stringency
+TRIMMER="ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 \   # remove adapters
+# <FASTA of adapters>:<seed mismatches>:<palindrome clip threshold>:<simple clip threshold>
+LEADING:10 \                                # remove leading low qual (below 10) or N bases
+TRAILING:10 \                               # remove trailing low qual (below 10) or N bases
+SLIDINGWINDOW:5:16 \                        # scan read in 5bp sliding window cutting when average quality per base below 16
+MINLEN:30"                                  # drop reads shorter than 30bp
+ADAPTER_SEQ='../data/TruSeq3-PE-2.fa'
+
+echo "passed definition of constants"
+
+#####################
+#                   #
+#  Setup TMPDIR     #
+#                   #
+#####################
+TMPDIR='/scratch/${PBS_JOBID%.*}' # remove .grommit suffix
+mkdir $TMPDIR
+
+# set trap for aborted jobs to copy temp files to a local folder
+trap "cd $PBS_O_WORKDIR;mkdir ${PBS_JOBID%.*};cp -R ${TMPDIR}/* ${PBS_JOBID%.*};rm -rf $TMPDIR"; TERM
+
+echo "passed creation of tmpdir and trap"
+
+############################################################
+#                                                          #
+#   Output some useful job information.                    #
+#    **Section copied from example script by K Cahill**    #
+#    https://www.osc.edu/sites/osc.edu/files/staff_files/  #
+#                                 kcahill/sample_job.pbs   #
+#                                                          #
+############################################################
+
+date
+echo ------------------------------------------------------
+echo -n 'Job is running on node '; cat $PBS_NODEFILE
+echo ------------------------------------------------------
+echo PBS: qsub is running on $PBS_O_HOST
+echo PBS: executing queue is $PBS_QUEUE
+echo PBS: working directory is $PBS_O_WORKDIR
+echo PBS: job identifier is $PBS_JOBID
+echo PBS: job name is $PBS_JOBNAME
+echo PBS: node file is $PBS_NODEFILE
+echo PBS: current home directory is $PBS_O_HOME
+echo PBS: PATH = $PBS_O_PATH
+echo PBS: tempdir = $TMPDIR
+echo ------------------------------------------------------
+cd $PBS_O_WORKDIR #run from analysis folder
+
+
+####################################################################
+#                                                                  #
+#  Move files to node                                              #
+#                                                                  #
+####################################################################
+echo "Transferring files from Working Directory to node's local directory"
+cd $TMPDIR
+echo "Files in node work directory:"
+ls -lrt
+
+echo "Adding input files:"
+cp $PBS_O_WORKDIR/$INPUT_PATH$INPUT_R1 .
+cp $PBS_O_WORKDIR/$INPUT_PATH$INPUT_R2 .
+cp $PBS_O_WORKDIR/$ADAPTER_SEQ .
+
+echo "Files in node work directory: "
+ls -lrt
+exit
+########################################################################
+#                                                                      #
+#  Process the FASTQ.GZ files to generate following                    #
+#     1) Count of reads pre-cleanup                                    #
+#     2) FASTQC results                                                #
+#     3) Trim adapters & low qual reads                                #
+#     4) FASTQC follow-up                                              #
+#     5) Counts of reads post-cleanup                                  #
+#     6) Zip & move to new data dir (data/trimmed)                     #
+#                                                                      #
+########################################################################
+echo "***************************"
+echo
+echo "Processing individual pairs of FASTQ files"
+for r1file in $(ls $INPUT_R1); do
+  # create base name
+  base=${r1file%_R1*}                 # remove _R1.fq.gz
+
+  echo "Processing sample: $base"
+
+  gunzip ${base}_R1*.gz
+  gunzip ${base}_R2*.gz
+
+  echo "  Item 1: count of reads pre-trim"
+  echo "Pre-trim,${base}_R1,$(wc -l ${base}_R1.*)" >> readcounts.csv
+  echo "Pre-trim,${base}_R2,$(wc -l ${base}_R2.*)" >> readcounts.csv
+
+  echo "  Item 2: FASTQC pre-trim"
+  fastqc ${base}_R1.*
+  fastqc ${base}_R2.*
+  cp *.zip $PBS_O_WORKDIR/$FASTQC_OUT1
+  cp *.html $PBS_O_WORKDIR/$FASTQC_OUT1
+  rm *.zip
+  rm *.html
+
+  echo "  Item 3: Trim Adapters & Low Qual Reads"
+  trimmomatic PE \
+    ${base}_R1.* \                         # input forward
+    ${base}_R2.* \                         # input reverse
+    trimmed.paired.${base}_R1.fq \         # output forward paired
+    trimmed.unpaired.${base}_R1.fq \       # output forward unpaired
+    trimmed.paired.${base}_R2.fq \         # output reverse paired
+    trimmed.unpaired.${base}_R2.fq \       # output reverse unpaired
+    $TRIMMER                               # settings
+
+  echo "  Item 4: FASTQC post-trim"
+  fastqc trimmed.paired.${base}_R1.fq trimmed.unpaired.${base}_R1.fq
+  fastqc trimmed.paired.${base}_R2.fq trimmed.unpaired.${base}_R2.fq
+  cp *.zip $PBS_O_WORKDIR/$FASTQC_OUT2
+  cp *.html $PBS_O_WORKDIR/$FASTQC_OUT2
+  rm *.zip
+  rm *.html
+
+  echo "  Item 5: count of reads post-trim"
+  echo "Post-trim;paired,${base}_R1,$(wc -l trimmed.paired.${base}_R1.fq)" >> readcounts.csv
+  echo "Post-trim;unpaired,${base}_R1,$(wc -l trimmed.unpaired.${base}_R1.fq)" >> readcounts.csv
+  echo "Post-trim;paired,${base}_R2,$(wc -l trimmed.paired.${base}_R2.fq)" >> readcounts.csv
+  echo "Post-trim;unpaired,${base}_R2,$(wc -l trimmed.unpaired.${base}_R2.fq)" >> readcounts.csv
+
+  echo "  Item 6: zip files & cleanup"
+  gzip trimmmed.paired.*fq
+  # concat all unpaired trimmed and use dummy "R0" to reference (so it matches name format of paired)
+  cat trimmed.unpaired.*R1.fq trimmed.unpaired.*R2.fq | gzip > trimmed.unpaired.${base}_R0.fq.gz
+  cp trimmed*.gz $PBS_O_WORKDIR/$TRIMMED_OUT
+
+  # cleanup
+  rm *${base}*
+
+done
+
+echo "Finished processing individual files"
+echo "Copying final files back to working directory"
+mv readcounts.csv $PBS_O_WORKDIR/../results/
+
+echo "Cleaning up temp files on scratch"
+rm -rf $TMPDIR
+
+echo "Finished cleanup"
+date
+exit

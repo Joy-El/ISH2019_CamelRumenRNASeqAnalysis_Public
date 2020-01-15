@@ -1,0 +1,71 @@
+#!/bin/bash -l
+#####################
+#                   #
+#  PBS directives   #
+#                   #
+#####################
+#PBS -q skylake
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=30:00:00 # 2x estimated time for 5 sequence sets x 3hr/set
+#PBS -N ISH2019_filterB
+#PBS -o acg_logs/${PBS_JOBNAME}.o${PBS_JOBID%.*} # jobID number only
+#PBS -j oe                                       # combine std_err with std_out
+#PBS -m abe                                      # send email at abort, begin, and end (for longer programs)
+#PBS -M joy-el@irisdatasolutions.co              # where to send emails
+
+
+#####################
+#                   #
+#  Load Modules     #
+#                   #
+#####################
+module load Bowtie2/2.3.4.3
+module load perl/5.24.0 # to support bowtie2 alignments
+
+
+#####################
+#                   #
+#  Setup logging    #
+#                   #
+#####################
+cd $PBS_O_WORKDIR
+logfile="$PBS_O_WORKDIR/acg_logs/${PBS_JOBID%.*}.$PBS_JOBNAME.log"
+echo "Starting Script: $(date)" &>> $logfile
+
+#####################
+#                   #
+#  Setup TMPDIR     #
+#                   #
+#####################
+tmpdir="/scratch/$PBS_JOBID"
+export tmpdir # make it an environmental variable reached by all scripts
+mkdir $tmpdir &>> $logfile
+
+# set trap for aborted jobs to copy temp files to a local folder
+#trap "cd $PBS_O_WORKDIR;mkdir $PBS_JOBID;cp -R ${tmpdir}/* $PBS_JOBID;rm -rf $tmpdir"; term
+# commenting out trap since it fails anyway...
+
+################################################################################
+#                                                                              #
+# Run Scripts                                                                  #
+#                                                                              #
+################################################################################
+
+# print job details
+source ../src/printPBSDetails.sh &>> $logfile
+
+# set variables
+source variables/filterBowtieVariables.sh &>> $logfile
+
+# run bowtie pipelines
+source ../src/runBowtieFilter.sh &>> $logfile
+
+
+#####################
+#                   #
+# Cleanup tmpdir    #
+#                   #
+#####################
+rm -rf $tmpdir
+echo "Finished Script: $(date)" &>> $logfile
+exit

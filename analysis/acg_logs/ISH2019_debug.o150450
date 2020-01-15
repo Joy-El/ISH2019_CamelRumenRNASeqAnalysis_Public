@@ -1,0 +1,14 @@
+passed PBS directives
+passed module FASTQC load
+passed module trimmomatic load
+passed module load
+attempting to make directory:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/fastqc_pre-trim/
+/var/spool/torque/mom_priv/jobs/150450.gromit.SC: line 60: mkdir: command not found
+/var/spool/torque/mom_priv/jobs/150450.gromit.SC: line 61: mkdir: command not found
+/var/spool/torque/mom_priv/jobs/150450.gromit.SC: line 62: mkdir: command not found
+passed definition of constants
+/var/spool/torque/mom_priv/jobs/150450.gromit.SC: line 82: mkdir: command not found
+trap: usage: trap [-lp] [[arg] signal_spec ...]
+/var/spool/torque/mom_priv/jobs/150450.gromit.SC: line 85: TERM: command not found
+passed creation of tmpdir and trap

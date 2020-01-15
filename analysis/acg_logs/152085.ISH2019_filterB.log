@@ -1,0 +1,360 @@
+Starting Script: Tue Dec 31 11:23:33 EST 2019
+------------------------------------------------------
+Job is running on node n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 152085.gromit
+PBS: job name is ISH2019_filterB
+PBS: node file is /var/spool/torque/aux//152085.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir = /scratch/152085.gromit
+------------------------------------------------------
+*************************************************************************
+Variable Definition for:
+    - src/runBowtieFilter.sh
+*************************************************************************
+
+Input Files (FASTA sequences)
+R1 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.paired.HI.3512.003.Index_11.1_R1.fq.gz
+
+R2 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.paired.HI.3512.003.Index_11.1_R2.fq.gz
+
+R0 FASTQ files (unpaired):
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.unpaired.HI.3512.003.Index_11.1_R0.fq.gz
+
+Reference Library
+
+Library files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.rev.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.rev.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.1.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.2.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.3.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.4.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.rev.1.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.rev.2.bt2l
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/camel_gDNA.rev.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/carp_gDNA.rev.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.2.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.3.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.4.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.rev.1.bt2
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/mosaic_virus_gDNA.rev.2.bt2
+
+Bowtie alignment parameters:
+--phred33 --fast-local --sam-no-qname-trunc --threads 16 --seed 1143
+
+Output Folders
+Bowtie Results: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/bowtie/
+Filtered Reads: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/filtered_reads/
+
+************************************************************************
+Filtering reads with Bowtie2
+************************************************************************
+
+Looping through FASTQ files to run bowtie2
+
+Copying bowtie2 libraries to /scratch/152085.gromit
+camel_gDNA.1.bt2
+camel_gDNA.2.bt2
+camel_gDNA.3.bt2
+camel_gDNA.4.bt2
+camel_gDNA.rev.1.bt2
+camel_gDNA.rev.2.bt2
+carp_gDNA.1.bt2
+carp_gDNA.2.bt2
+carp_gDNA.3.bt2
+carp_gDNA.4.bt2
+carp_gDNA.rev.1.bt2
+carp_gDNA.rev.2.bt2
+mosaic_virus_gDNA.1.bt2
+mosaic_virus_gDNA.2.bt2
+mosaic_virus_gDNA.3.bt2
+mosaic_virus_gDNA.4.bt2
+mosaic_virus_gDNA.rev.1.bt2
+mosaic_virus_gDNA.rev.2.bt2
+silva_arch_rDNA.1.bt2
+silva_arch_rDNA.2.bt2
+silva_arch_rDNA.3.bt2
+silva_arch_rDNA.4.bt2
+silva_arch_rDNA.rev.1.bt2
+silva_arch_rDNA.rev.2.bt2
+silva_euk_rDNA.1.bt2
+silva_euk_rDNA.2.bt2
+silva_euk_rDNA.3.bt2
+silva_euk_rDNA.4.bt2
+silva_euk_rDNA.rev.1.bt2
+silva_euk_rDNA.rev.2.bt2
+silva_prok_rDNA.1.bt2l
+silva_prok_rDNA.2.bt2l
+silva_prok_rDNA.3.bt2l
+silva_prok_rDNA.4.bt2l
+silva_prok_rDNA.rev.1.bt2l
+silva_prok_rDNA.rev.2.bt2l
+
+Starting to loop through FASTQ file sets
+*************************************
+  Processing HI.3512.003.Index_11.1 sequence files
+    1. copying initial sequence files from /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/
+    2. adjusting filenames to match pattern used in looping
+total 26G
+drwxr-xr-x 2 jtalbot sfa 4.0K Dec 31 11:23 HI.3512.003.Index_11.1
+-rw-r--r-- 1 jtalbot sfa 1.5G Dec 31 11:24 R0.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:24 R1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:24 R2.fq
+    3a. Filtering against silva_euk_rDNA
+**** paired-end & singleton bowtie ****
+47763280 reads; of these:
+  42222006 (88.40%) were paired; of these:
+    42220802 (100.00%) aligned concordantly 0 times
+    72 (0.00%) aligned concordantly exactly 1 time
+    1132 (0.00%) aligned concordantly >1 times
+    ----
+    42220802 pairs aligned concordantly 0 times; of these:
+      14 (0.00%) aligned discordantly 1 time
+    ----
+    42220788 pairs aligned 0 times concordantly or discordantly; of these:
+      84441576 mates make up the pairs; of these:
+        84440429 (100.00%) aligned 0 times
+        270 (0.00%) aligned exactly 1 time
+        877 (0.00%) aligned >1 times
+  5541274 (11.60%) were unpaired; of these:
+    5532406 (99.84%) aligned 0 times
+    62 (0.00%) aligned exactly 1 time
+    8806 (0.16%) aligned >1 times
+0.01% overall alignment rate
+    3b. Preparing for next library
+Files in /scratch/152085.gromit/HI.3512.003.Index_11.1/ after bowtie runs:
+total 54G
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:37 silva_euk_rDNA-HI.3512.003.Index_11.1_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:37 silva_euk_rDNA-HI.3512.003.Index_11.1_R.2.fq
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 11:37 silva_euk_rDNA-HI.3512.003.Index_11.1_R0.fq
+-rw-r--r-- 1 jtalbot sfa  28G Dec 31 11:37 silva_euk_rDNA-HI.3512.003.Index_11.1_mapped.sam
+Files in base dir after bowtie runs (exclude libraries):
+total 26G
+drwxr-xr-x 2 jtalbot sfa 4.0K Dec 31 11:27 HI.3512.003.Index_11.1
+-rw-r--r-- 1 jtalbot sfa 1.5G Dec 31 11:24 R0.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:24 R1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:24 R2.fq
+    4a. Filtering against silva_arch_rDNA
+**** paired-end & singleton bowtie ****
+47753208 reads; of these:
+  42220802 (88.41%) were paired; of these:
+    42220779 (100.00%) aligned concordantly 0 times
+    8 (0.00%) aligned concordantly exactly 1 time
+    15 (0.00%) aligned concordantly >1 times
+    ----
+    42220779 pairs aligned concordantly 0 times; of these:
+      0 (0.00%) aligned discordantly 1 time
+    ----
+    42220779 pairs aligned 0 times concordantly or discordantly; of these:
+      84441558 mates make up the pairs; of these:
+        84441501 (100.00%) aligned 0 times
+        11 (0.00%) aligned exactly 1 time
+        46 (0.00%) aligned >1 times
+  5532406 (11.59%) were unpaired; of these:
+    5532386 (100.00%) aligned 0 times
+    1 (0.00%) aligned exactly 1 time
+    19 (0.00%) aligned >1 times
+0.00% overall alignment rate
+    4b. Preparing for next library
+Files in /scratch/152085.gromit/HI.3512.003.Index_11.1/ after bowtie runs:
+total 54G
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:51 silva_arch_rDNA-HI.3512.003.Index_11.1_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:51 silva_arch_rDNA-HI.3512.003.Index_11.1_R.2.fq
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 11:51 silva_arch_rDNA-HI.3512.003.Index_11.1_R0.fq
+-rw-r--r-- 1 jtalbot sfa  28G Dec 31 11:51 silva_arch_rDNA-HI.3512.003.Index_11.1_mapped.sam
+Files in base dir after bowtie runs (exclude libraries):
+total 26G
+drwxr-xr-x 2 jtalbot sfa 4.0K Dec 31 11:41 HI.3512.003.Index_11.1
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 11:39 R0.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:38 R1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:39 R2.fq
+-rw-r--r-- 1 jtalbot sfa  301 Dec 31 11:39 bowtie_filter_filelines.txt
+    5a. Filtering against silva_prok_rDNA
+**** paired-end & singleton bowtie ****
+47753165 reads; of these:
+  42220779 (88.41%) were paired; of these:
+    42220581 (100.00%) aligned concordantly 0 times
+    51 (0.00%) aligned concordantly exactly 1 time
+    147 (0.00%) aligned concordantly >1 times
+    ----
+    42220581 pairs aligned concordantly 0 times; of these:
+      9 (0.00%) aligned discordantly 1 time
+    ----
+    42220572 pairs aligned 0 times concordantly or discordantly; of these:
+      84441144 mates make up the pairs; of these:
+        84439894 (100.00%) aligned 0 times
+        281 (0.00%) aligned exactly 1 time
+        969 (0.00%) aligned >1 times
+  5532386 (11.59%) were unpaired; of these:
+    5532255 (100.00%) aligned 0 times
+    55 (0.00%) aligned exactly 1 time
+    76 (0.00%) aligned >1 times
+0.00% overall alignment rate
+    5b. Preparing for next library
+Files in /scratch/152085.gromit/HI.3512.003.Index_11.1/ after bowtie runs:
+total 54G
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:06 silva_prok_rDNA-HI.3512.003.Index_11.1_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:06 silva_prok_rDNA-HI.3512.003.Index_11.1_R.2.fq
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 12:06 silva_prok_rDNA-HI.3512.003.Index_11.1_R0.fq
+-rw-r--r-- 1 jtalbot sfa  28G Dec 31 12:06 silva_prok_rDNA-HI.3512.003.Index_11.1_mapped.sam
+Files in base dir after bowtie runs (exclude libraries):
+total 26G
+drwxr-xr-x 2 jtalbot sfa 4.0K Dec 31 11:56 HI.3512.003.Index_11.1
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 11:53 R0.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:52 R1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 11:53 R2.fq
+-rw-r--r-- 1 jtalbot sfa  605 Dec 31 11:53 bowtie_filter_filelines.txt
+    6a. Filtering against camel_gDNA
+**** paired-end & singleton bowtie ****
+47752836 reads; of these:
+  42220581 (88.41%) were paired; of these:
+    42193474 (99.94%) aligned concordantly 0 times
+    16593 (0.04%) aligned concordantly exactly 1 time
+    10514 (0.02%) aligned concordantly >1 times
+    ----
+    42193474 pairs aligned concordantly 0 times; of these:
+      595 (0.00%) aligned discordantly 1 time
+    ----
+    42192879 pairs aligned 0 times concordantly or discordantly; of these:
+      84385758 mates make up the pairs; of these:
+        84373707 (99.99%) aligned 0 times
+        4381 (0.01%) aligned exactly 1 time
+        7670 (0.01%) aligned >1 times
+  5532255 (11.59%) were unpaired; of these:
+    5526000 (99.89%) aligned 0 times
+    3398 (0.06%) aligned exactly 1 time
+    2857 (0.05%) aligned >1 times
+0.08% overall alignment rate
+    6b. Preparing for next library
+Files in /scratch/152085.gromit/HI.3512.003.Index_11.1/ after bowtie runs:
+total 54G
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:21 camel_gDNA-HI.3512.003.Index_11.1_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:21 camel_gDNA-HI.3512.003.Index_11.1_R.2.fq
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 12:21 camel_gDNA-HI.3512.003.Index_11.1_R0.fq
+-rw-r--r-- 1 jtalbot sfa  28G Dec 31 12:21 camel_gDNA-HI.3512.003.Index_11.1_mapped.sam
+Files in base dir after bowtie runs (exclude libraries):
+total 26G
+drwxr-xr-x 2 jtalbot sfa 4.0K Dec 31 12:11 HI.3512.003.Index_11.1
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 12:08 R0.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:07 R1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:08 R2.fq
+-rw-r--r-- 1 jtalbot sfa  909 Dec 31 12:08 bowtie_filter_filelines.txt
+    7a. Filtering against carp_gDNA
+**** paired-end & singleton bowtie ****
+47719474 reads; of these:
+  42193474 (88.42%) were paired; of these:
+    42180966 (99.97%) aligned concordantly 0 times
+    10471 (0.02%) aligned concordantly exactly 1 time
+    2037 (0.00%) aligned concordantly >1 times
+    ----
+    42180966 pairs aligned concordantly 0 times; of these:
+      1160 (0.00%) aligned discordantly 1 time
+    ----
+    42179806 pairs aligned 0 times concordantly or discordantly; of these:
+      84359612 mates make up the pairs; of these:
+        84342642 (99.98%) aligned 0 times
+        11591 (0.01%) aligned exactly 1 time
+        5379 (0.01%) aligned >1 times
+  5526000 (11.58%) were unpaired; of these:
+    5522312 (99.93%) aligned 0 times
+    2716 (0.05%) aligned exactly 1 time
+    972 (0.02%) aligned >1 times
+0.05% overall alignment rate
+    7b. Preparing for next library
+Files in /scratch/152085.gromit/HI.3512.003.Index_11.1/ after bowtie runs:
+total 54G
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:35 carp_gDNA-HI.3512.003.Index_11.1_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:35 carp_gDNA-HI.3512.003.Index_11.1_R.2.fq
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 12:35 carp_gDNA-HI.3512.003.Index_11.1_R0.fq
+-rw-r--r-- 1 jtalbot sfa  28G Dec 31 12:35 carp_gDNA-HI.3512.003.Index_11.1_mapped.sam
+Files in base dir after bowtie runs (exclude libraries):
+total 26G
+drwxr-xr-x 2 jtalbot sfa 4.0K Dec 31 12:25 HI.3512.003.Index_11.1
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 12:22 R0.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:21 R1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:22 R2.fq
+-rw-r--r-- 1 jtalbot sfa 1.2K Dec 31 12:23 bowtie_filter_filelines.txt
+    8a. Filtering against mosaic_virus_gDNA
+**** paired-end & singleton bowtie ****
+47703278 reads; of these:
+  42180966 (88.42%) were paired; of these:
+    42179797 (100.00%) aligned concordantly 0 times
+    1157 (0.00%) aligned concordantly exactly 1 time
+    12 (0.00%) aligned concordantly >1 times
+    ----
+    42179797 pairs aligned concordantly 0 times; of these:
+      50 (0.00%) aligned discordantly 1 time
+    ----
+    42179747 pairs aligned 0 times concordantly or discordantly; of these:
+      84359494 mates make up the pairs; of these:
+        84359443 (100.00%) aligned 0 times
+        48 (0.00%) aligned exactly 1 time
+        3 (0.00%) aligned >1 times
+  5522312 (11.58%) were unpaired; of these:
+    5521516 (99.99%) aligned 0 times
+    789 (0.01%) aligned exactly 1 time
+    7 (0.00%) aligned >1 times
+0.00% overall alignment rate
+    8b. Preparing for next library
+Files in /scratch/152085.gromit/HI.3512.003.Index_11.1/ after bowtie runs:
+total 54G
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:49 mosaic_virus_gDNA-HI.3512.003.Index_11.1_R.1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:49 mosaic_virus_gDNA-HI.3512.003.Index_11.1_R.2.fq
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 12:49 mosaic_virus_gDNA-HI.3512.003.Index_11.1_R0.fq
+-rw-r--r-- 1 jtalbot sfa  28G Dec 31 12:49 mosaic_virus_gDNA-HI.3512.003.Index_11.1_mapped.sam
+Files in base dir after bowtie runs (exclude libraries):
+total 26G
+drwxr-xr-x 2 jtalbot sfa 4.0K Dec 31 12:39 HI.3512.003.Index_11.1
+-rw-r--r-- 1 jtalbot sfa 1.4G Dec 31 12:37 R0.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:36 R1.fq
+-rw-r--r-- 1 jtalbot sfa  13G Dec 31 12:36 R2.fq
+-rw-r--r-- 1 jtalbot sfa 1.5K Dec 31 12:37 bowtie_filter_filelines.txt
+    9. Moving final filtered sequences to /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/filtered_reads/
+
+************************************************************************
+Finished filtering sequences
+************************************************************************
+Finished Script: Tue Dec 31 13:41:04 EST 2019

@@ -1,0 +1,5 @@
+Starting Script: Tue Dec 17 11:17:51 EST 2019
+/var/spool/torque/mom_priv/jobs/150528.gromit.SC: line 48: ../src/printPBSDetails.sh: Permission denied
+/var/spool/torque/mom_priv/jobs/150528.gromit.SC: line 51: variables/trimFQVariables.sh: Permission denied
+Error: Unable to access jarfile trimmomatic
+Finished Script: Tue Dec 17 11:17:51 EST 2019

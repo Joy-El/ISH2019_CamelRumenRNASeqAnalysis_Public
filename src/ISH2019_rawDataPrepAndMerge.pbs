@@ -1,0 +1,127 @@
+####################################################################
+#                                                                  #
+#  Raw Data Prep and Merge                                         #
+#    1) Gather header information                                  #
+#    2) Extract a sample for test analyses                         #
+#    3) Create merged FASTQ files for paired-end reads (R1 & R2)   #
+#    4) Gzip & checksum merged FASTQ files                         #
+#                                                                  #
+####################################################################
+
+#####################
+#                   #
+#  PBS directives   #
+#                   #
+#####################
+#PBS -q skylake
+#PBS -l procs=1
+#PBS -l walltime=04:00:00
+#PBS -N ISH2019_rawData                      # first 15 chars of file name
+#PBS -o acg_logs/${PBS_JOBNAME}.o${PBS_JOBID%.*} #jobID number only
+#PBS -j oe #combine std_err with std_out
+#PBS -m abe                              # send email at abort, begin, and end (for longer programs)
+#PBS -M joy-el@irisdatasolutions.co          # where to send emails
+
+#####################
+#                   #
+#  Setup TMPDIR     #
+#                   #
+#####################
+TMPDIR='/scratch/${PBS_JOBID%.*}' # remove .grommit suffix
+mkdir $TMPDIR
+
+# set trap for aborted jobs to copy temp files to a local folder
+trap "cd $PBS_O_WORKDIR;mkdir ${PBS_JOBID%.*};cp -R ${TMPDIR}/* ${PBS_JOBID%.*}; rm -rf $TMPDIR;"; TERM
+
+
+##########################################################
+#                                                        #
+#   Output some useful job information.                  #
+#    **Section copied from example script by K Cahill**  #
+#    https://www.osc.edu/sites/osc.edu/files/staff_files/kcahill/sample_job.pbs  #
+#                                                        #
+##########################################################
+
+date
+echo ------------------------------------------------------
+echo -n 'Job is running on node '; cat $PBS_NODEFILE
+echo ------------------------------------------------------
+echo PBS: qsub is running on $PBS_O_HOST
+echo PBS: executing queue is $PBS_QUEUE
+echo PBS: working directory is $PBS_O_WORKDIR
+echo PBS: job identifier is $PBS_JOBID
+echo PBS: job name is $PBS_JOBNAME
+echo PBS: node file is $PBS_NODEFILE
+echo PBS: current home directory is $PBS_O_HOME
+echo PBS: PATH = $PBS_O_PATH
+echo PBS: tempdir = $TMPDIR
+echo ------------------------------------------------------
+cd $PBS_O_WORKDIR #run from analysis folder
+
+
+####################################################################
+#                                                                  #
+#  Move files to node                                              #
+#                                                                  #
+####################################################################
+echo "Transferring files from Working Directory to node's local directory"
+cd $TMPDIR
+echo "Files in node work directory:"
+ls -lrt
+
+echo "Adding input files:"
+cp $PBS_O_WORKDIR/../data/raw_sequences/*.gz .
+
+echo "Files in node work directory: "
+ls -lrt
+
+########################################################################
+#                                                                      #
+#  Process the FASTQ.GZ files to generate following                    #
+#     header_details.tab: file name \t header                          #
+#     sample_R1.fq & sample_R2.fq: sample of 200 lines from each file  #
+#     merged_R1.fq & merged_R2.fq: all data concatenated               #
+#                                 to facilitate multi-node processing  #
+#                                                                      #
+########################################################################
+echo "***************************"
+echo
+echo "Processing individual FASTQ files"
+for pair in R1 R2; do
+  for file in $(ls HI.3512.003.Index_*_${pair}.fastq.gz); do
+    echo "Processing file: $file"
+    gunzip $file
+    # create name for unzipped file
+    fqfile=${file%.*} # remove .gz from the name
+
+    # get tracking for header
+    echo "${fqfile}\t$(head -1 $fqfile)" >> header_details.tab
+
+    # get sample of 200 fq data 10,000 data in...
+    head -40000 $fqfile | tail -800 >> sample_${pair}.fq
+
+    # add ALL data to the merged file
+    # cat $fqfile >> merged_${pair}.fq
+
+    # cleanup as we go
+    rm $fqfile
+  done
+done
+
+echo "Finished processing individual files"
+echo "Zipping final files and cleaning up"
+#gzip merged_R1.fq
+#gzip merged_R2.fq
+gzip sample_R1.fq
+gzip sample_R2.fq
+
+echo "Copying final files back to working directory"
+cp *.fq.gz $PBS_O_WORKDIR/../data/raw_sequences/
+cp header_details.tab $PBS_O_WORKDIR/../results/
+
+echo "Cleaning up temp files on scratch"
+rm -rf $TMPDIR
+
+echo "Finished cleanup"
+date
+exit

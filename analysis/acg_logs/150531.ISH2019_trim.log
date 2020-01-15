@@ -1,0 +1,42 @@
+Starting Script: Tue Dec 17 11:31:52 EST 2019
+------------------------------------------------------
+Job is running on node n250.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 150531.gromit
+PBS: job name is ISH2019_trim
+PBS: node file is /var/spool/torque/aux//150531.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir =
+------------------------------------------------------
+*************************************************************************
+Variable Definition for:
+    - src/trimFQ.sh
+*************************************************************************
+
+Input Files
+R1 FASTQ files:
+../data/raw_sequences//sample_R1.fq.gz
+
+R2 FASTQ files:
+../data/raw_sequences//sample_R2.fq.gz
+
+Output Folders
+First FASTQC Run: ../results/fastqc_pre-trim/
+Trimmed FASTQ: ../data/trimmed/
+Second FASTQC Run: ../results/fastqc_post-trim/
+
+Trimmomatic Details
+Location of adapter FASTA: ../data/TruSeq3-PE-2.fa
+Trimmomatic Variables:
+ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+
+
+/var/spool/torque/mom_priv/jobs/150531.gromit.SC: line 55: trimmomatic: command not found
+Unrecognized option: --help
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+Finished Script: Tue Dec 17 11:31:52 EST 2019

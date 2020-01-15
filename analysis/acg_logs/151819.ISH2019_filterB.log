@@ -1,0 +1,141 @@
+Starting Script: Mon Dec 30 20:20:56 EST 2019
+------------------------------------------------------
+Job is running on node n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+n250.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 151819.gromit
+PBS: job name is ISH2019_filterB
+PBS: node file is /var/spool/torque/aux//151819.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir = /scratch/151819.gromit
+------------------------------------------------------
+*************************************************************************
+Variable Definition for:
+    - src/runBowtieFilter.sh
+*************************************************************************
+
+Input Files (FASTA sequences)
+R1 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.paired.sample_R1.fq.gz
+
+R2 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.paired.sample_R2.fq.gz
+
+R0 FASTQ files (unpaired):
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/trimmed.unpaired.sample_R0.fq.gz
+
+Reference Library
+
+Library files:
+variables/filterBowtieVariables.sh: line 39: `$library': not a valid identifier
+
+Bowtie alignment parameters:
+--phred33 --fast-end-to-end --sam-no-qname-trunc --threads 16 --seed 1143
+
+Output Folders
+Bowtie Results: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/bowtie/
+Filtered Reads: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/filtered_reads/
+
+************************************************************************
+Filtering reads with Bowtie2
+************************************************************************
+
+Looping through FASTQ files to run bowtie2
+
+Copying bowtie2 libraries to /scratch/151819.gromit
+cp: cannot stat '/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_euk_rDNA.*': No such file or directory
+cp: cannot stat '/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_arch_rDNA.*': No such file or directory
+cp: cannot stat '/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/reference_sequences/bowtie_libraries/silva_prok_rDNA.*': No such file or directory
+
+Starting to loop through FASTQ file sets
+*************************************
+  Processing sample sequence files
+    1. copying initial sequence files from /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/
+cp: cannot stat '/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/*sample*': No such file or directory
+gzip: *sample*.gz: No such file or directory
+rm: cannot remove '*.gz': No such file or directory
+    2. adjusting filenames to match pattern used in looping
+mv: cannot stat 'trimmed.paired.sample_R1.fq': No such file or directory
+mv: cannot stat 'trimmed.paired.sample_R2.fq': No such file or directory
+mv: cannot stat 'trimmed.unpaired.sample_R0.fq': No such file or directory
+sample
+    3a. Filtering against silva_euk_rDNA
+../src/runBowtieFilter.sh: line 72: bowtie: command not found
+../src/runBowtieFilter.sh: line 81: bowtie: command not found
+    3b. Preparing for next library
+cp: cannot stat '/scratch/151819.gromit/sample/silva_euk_rDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/151819.gromit/sample/silva_euk_rDNA-sample_R2.fq': No such file or directory
+cat: /scratch/151819.gromit/sample/silva_euk_rDNA-sample_R0a.fq: No such file or directory
+cat: /scratch/151819.gromit/sample/silva_euk_rDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_euk_rDNA-sample_R1.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_euk_rDNA-sample_R2.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_euk_rDNA-sample_R0a.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_euk_rDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_euk_rDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_euk_rDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_euk_rDNA-sample_R0a.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_euk_rDNA-sample_R0b.fq': No such file or directory
+cp: cannot stat '/scratch/151819.gromit/sample/*.sam': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/*.sam': No such file or directory
+    4a. Filtering against silva_arch_rDNA
+../src/runBowtieFilter.sh: line 72: bowtie: command not found
+../src/runBowtieFilter.sh: line 81: bowtie: command not found
+    4b. Preparing for next library
+cp: cannot stat '/scratch/151819.gromit/sample/silva_arch_rDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/151819.gromit/sample/silva_arch_rDNA-sample_R2.fq': No such file or directory
+cat: /scratch/151819.gromit/sample/silva_arch_rDNA-sample_R0a.fq: No such file or directory
+cat: /scratch/151819.gromit/sample/silva_arch_rDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_arch_rDNA-sample_R1.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_arch_rDNA-sample_R2.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_arch_rDNA-sample_R0a.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_arch_rDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_arch_rDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_arch_rDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_arch_rDNA-sample_R0a.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_arch_rDNA-sample_R0b.fq': No such file or directory
+cp: cannot stat '/scratch/151819.gromit/sample/*.sam': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/*.sam': No such file or directory
+    5a. Filtering against silva_prok_rDNA
+../src/runBowtieFilter.sh: line 72: bowtie: command not found
+../src/runBowtieFilter.sh: line 81: bowtie: command not found
+    5b. Preparing for next library
+cp: cannot stat '/scratch/151819.gromit/sample/silva_prok_rDNA-sample_R1.fq': No such file or directory
+cp: cannot stat '/scratch/151819.gromit/sample/silva_prok_rDNA-sample_R2.fq': No such file or directory
+cat: /scratch/151819.gromit/sample/silva_prok_rDNA-sample_R0a.fq: No such file or directory
+cat: /scratch/151819.gromit/sample/silva_prok_rDNA-sample_R0b.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_prok_rDNA-sample_R1.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_prok_rDNA-sample_R2.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_prok_rDNA-sample_R0a.fq: No such file or directory
+wc: /scratch/151819.gromit/sample/silva_prok_rDNA-sample_R0b.fq: No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_prok_rDNA-sample_R1.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_prok_rDNA-sample_R2.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_prok_rDNA-sample_R0a.fq': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/silva_prok_rDNA-sample_R0b.fq': No such file or directory
+cp: cannot stat '/scratch/151819.gromit/sample/*.sam': No such file or directory
+rm: cannot remove '/scratch/151819.gromit/sample/*.sam': No such file or directory
+    6. Moving final filtered sequences to /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/filtered_reads/
+mv: cannot stat 'R1.fq': No such file or directory
+mv: cannot stat 'R2.fq': No such file or directory
+
+************************************************************************
+Finished filtering sequences
+************************************************************************
+Finished Script: Mon Dec 30 20:20:56 EST 2019

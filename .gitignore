@@ -1,0 +1,8 @@
+data/*
+.Rhistory
+results/tables/*
+results/graphs/*
+results/reports/*
+results/*trim*/*
+*.sam
+results/*

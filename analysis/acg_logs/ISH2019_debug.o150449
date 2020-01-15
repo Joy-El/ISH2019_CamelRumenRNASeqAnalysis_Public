@@ -1,0 +1,8 @@
+passed PBS directives
+passed module FASTQC load
+passed module trimmomatic load
+passed module load
+/var/spool/torque/mom_priv/jobs/150449.gromit.SC: line 56: mkdir: command not found
+/var/spool/torque/mom_priv/jobs/150449.gromit.SC: line 57: mkdir: command not found
+/var/spool/torque/mom_priv/jobs/150449.gromit.SC: line 58: mkdir: command not found
+passed definition of constants

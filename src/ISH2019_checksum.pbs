@@ -1,0 +1,22 @@
+#PBS -q batch
+#PBS -N ISH2019_checksum
+#PBS -l procs=1
+#PBS -l walltime=00:10:00
+#PBS -o acg_logs/${PBS_JOBNAME}.o${PBS_JOBID%.*} #jobID number only
+#PBS -j oe #combine std_err with std_out
+#PBS -m abe                                      # send email at abort, begin, and end (for longer programs)
+#PBS -M joy-el@irisdatasolutions.co              # where to send emails
+
+cd $PBS_O_WORKDIR #run from analysis folder
+echo $(date)
+echo "Running $PBS_JOBNAME $PBS_JOBID from $PBS_O_WORKDIR"
+
+#core job code
+for file in $(ls ../data/raw_sequences/*.gz); do
+  md5sum $file >> checksum_values.txt
+done
+mv checksum_values.txt $PBS_O_WORKDIR/../results/
+
+#end of job cleanup
+echo "End of job"
+echo $(date)

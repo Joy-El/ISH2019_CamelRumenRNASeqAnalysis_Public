@@ -1,0 +1,50 @@
+Wed Dec 11 09:56:39 EST 2019
+------------------------------------------------------
+Job is running on node n140.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is batch
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 148526.gromit
+PBS: job name is ISH2019_rawData
+PBS: node file is /var/spool/torque/aux//148526.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+------------------------------------------------------
+Wed Dec 11 09:56:39 EST 2019
+Running ISH2019_rawData 148526.gromit from /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+Transferring files from Working Directory to node's local directory
+Files in node work directory: 
+total 38518098
+drwxr-xr-x 2 jtalbot sfa          6 Nov  9 18:27 pi_MPI
+drwxr-xr-x 7 jtalbot sfa         10 Dec  8 09:13 ISH2019_CamelRumenRNASeqAnalysis
+-rw-r--r-- 1 jtalbot sfa 3770707831 Dec 11 09:56 HI.3512.003.Index_11.1_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3766530166 Dec 11 09:57 HI.3512.003.Index_11.1_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3326966068 Dec 11 09:58 HI.3512.003.Index_20.2_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3310060398 Dec 11 09:59 HI.3512.003.Index_20.2_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3126322602 Dec 11 09:59 HI.3512.003.Index_21.5_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3133538211 Dec 11 10:00 HI.3512.003.Index_21.5_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 2930698027 Dec 11 10:01 HI.3512.003.Index_22.3_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 2938178771 Dec 11 10:01 HI.3512.003.Index_22.3_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3715996257 Dec 11 10:02 HI.3512.003.Index_23.6_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3808254113 Dec 11 10:03 HI.3512.003.Index_23.6_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 2786072428 Dec 11 10:04 HI.3512.003.Index_25.4_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 2749839210 Dec 11 10:04 HI.3512.003.Index_25.4_R2.fastq.gz
+***************************
+
+Processing individual FASTQ files
+Processing file: HI.3512.003.Index_11.1_R1.fastq.gz
+Processing file: HI.3512.003.Index_20.2_R1.fastq.gz
+Processing file: HI.3512.003.Index_21.5_R1.fastq.gz
+Processing file: HI.3512.003.Index_22.3_R1.fastq.gz
+Processing file: HI.3512.003.Index_23.6_R1.fastq.gz
+Processing file: HI.3512.003.Index_25.4_R1.fastq.gz
+Processing file: HI.3512.003.Index_11.1_R2.fastq.gz
+Processing file: HI.3512.003.Index_20.2_R2.fastq.gz
+Processing file: HI.3512.003.Index_21.5_R2.fastq.gz
+Processing file: HI.3512.003.Index_22.3_R2.fastq.gz
+Processing file: HI.3512.003.Index_23.6_R2.fastq.gz
+Processing file: HI.3512.003.Index_25.4_R2.fastq.gz
+Finished processing individual files
+Zipping final files and cleaning up
+=>> PBS: job killed: walltime 7216 exceeded limit 7200

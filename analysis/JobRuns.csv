@@ -1,0 +1,61 @@
+script  timestamp(approximate)  qsub_output processes timerun
+src/ISH2019_checksum.pbs  20191208:08:27:00 148024.gromit 1 00:03:07
+src/ISH2019_checksum.pbs  20191208:09:18:00 148026.gromit 1 00:02:06
+src/ISH2019_rawDataPrepAndMerge.pbs 20191211:09:56:00  148526.gromit 1 02:00:00  hitwalltime in cleanup
+src/ISH2019_rawDataPrepAndMerge.pbs 20191211:12:34:00  148560.gromit 1 aborted to remove merged file creation
+src/ISH2019_rawDataPrepAndMerge.pbs 20191211:12:55:00 148563.gromit 1 01:40:00  approximate time
+src/ISH2019_rawDataPrepAndMerge.pbs 20191213:10:28:00 149143.gromit 1 aborted got answers for question
+src/ISH2019_trimmomatic.pbs 20191216:12:02:00 150407.grommit  1 failed: unable to reach viz3.acg.maine.edu port 22 (during copy)
+src/ISH2019_trimmomatic.pbs 20191216:12:05:00 150413.grommit  1 failed: same as last
+src/ISH2019_debug.pbs 20191216:13:47:00 150429.grommit  1 failed: same error
+src/ISH2019_debug.pbs 20191216:13:49:00 150431.grommit  1 failed: same error; had updated from skylake to batch; still failed
+src/ISH2019_checksum.pbs  20191216:13:52:00 150433.grommit  1 00:03:39  no error
+src/ISH2019_checksum.pbs  20191216:14:00:00 150434.grommit  1 00:02:18  no error; includes additional PBS lines from Trimmomatic
+src/ISH2019_checksum.pbs  20191216:14:07:00 150436.grommit  1 00:01:21  no error; includes all top lines from Trimmomatic; switching back to debug files
+src/ISH2019_debug.pbs 20191216:14:12:00 150437.grommit  1 00:00:01  no error through PBS directives
+src/ISH2019_debug.pbs 20191216:14:16:00 150439.grommit  1 00:00:01  no error through module loads
+src/ISH2019_debug.pbs 20191216:14:19:00 150449.grommit  1 00:00:01  mkdir command not found
+src/ISH2019_debug.pbs 20191216:14:24:00 150450.grommit  1 00:00:01  mkdir command still fails
+src/ISH2019_debug.pbs 20191216:14:29:00 150476.grommit  1 00:00:01  solved; I was overwriting the PATH variable :-(
+src/ISH2019_trimmomatic.pbs 20191216:14:34:00 150477.grommit  1 failed; same error... (near trimmomatic run; noticed that sample R1 is larger than sample R2; maybe that is causing trimmomatic to fail? rerun raw prep)
+src/ISH2019_debug.pbs 20191216:14:39:00 150478.grommit  1 00:00:01  ran Finished
+src/ISH2019_rawDataPrepAndMerge.pbs 20191216:14:47:00 150479.grommit  1 aborted; hit walltime in last run, that's why one sample was smaller
+src/ISH2019_rawDataPrepAndMerge.pbs 20191216:14:55:00 150480.grommit  1 no final log (same error moving from temp); does appear to have completed... got complete header files and zipped sample Files
+src/ISH2019_trimmomatic.pbs 20191216:15:29:00 150485.grommit  1 00:00:17  says completed, no log file; still have different sized sample files - will need to fix manually?
+src/ISH2019_trimmomatic.pbs 20191216:15:47:00 150497.grommit  1 00:00:11  says completed, same issue with log files
+src/ISH2019_trimmomatic.pbs 20191216:15:55:00 150498.grommit  1 00:00:12  says completed... don't see manual file...
+src/ISH2019_trimmomatic.pbs 20191216:16:53:00 150503.grommit  1 00:00:12  manual log worked, didn't see trimmomatic details
+src/ISH2019_trimmomatic.pbs 20191216:16:58:00 150504.grommit  1
+analysis/ISH2019_trimmomatic.pbs  20191217:11:10:00 150526.gromit 1 00:00:00  logfile didn't expand variables; errors everywhere...
+analysis/ISH2019_trimmomatic.pbs  20191217:11:17:00 150528.gromit 1 00:00:00  logfile works now; getting permission denied on bash scripts; jarfile version of trimmomatic not Working
+analysis/ISH2019_trimmomatic.pbs  20191217:11:21:00 150529.gromit 1 00:00:00  making *.sh files a+x fixed that issue, still getting trimmomatic error...
+analysis/ISH2019_trimmomatic.pbs  20191217:11:32:00 150531.gromit 1 00:00:00  trying both trimmomatic and loading java module then running
+analysis/ISH2019_trimmomatic.pbs  20191217:11:40:00 150532.gromit 1 00:00:00  more java trials
+analysis/ISH2019_trimmomatic.pbs  20191217:13:03:00 150535.gromit 1 00:00:00  trimmomatic was called; but issue with defining tmpdir and copying files...
+analysis/ISH2019_trimmomatic.pbs  20191217:13:20:00 150537.gromit 1 00:00:00  failed to get updated scripts from github
+analysis/ISH2019_trimmomatic.pbs  20191217:13:35:00 150538.gromit 1 00:00:00  continued tmpdir failure
+analysis/ISH2019_trimmomatic.pbs  20191217:13:44:00 150540.gromit 1 00:00:00  switching to double quotes has fixed the issue
+analysis/ISH2019_trimmomatic.pbs  20191217:13:51:00 150572.gromit 1 00:00:03  complete test of script; still have the same problem - suspect it is because the variable are across scripts - I need to use Export to make them environmental variables
+analysis/ISH2019_trimmomatic.pbs  20191217:13:57:00 150573.gromit 1 00:00:00  exporting tmpdir allowed it to be visible to the printPBSDetails.sh script!
+analysis/ISH2019_trimmomatic.pbs  20191217:14:02:00 150575.gromit 1 00:00:00  still not working, will try source next
+analysis/ISH2019_trimmomatic.pbs  20191217:14:09:00 150576.gromit 1 00:00:00  IT WORKED!!! now to fix a small typo in the final gzip command...
+analysis/ISH2019_trimmomatic.pbs  20191217:14:18:00 150577.gromit 1 00:00:17  FULL sample running
+analysis/ISH2019_trimmomatic.pbs  20191217:14:21:00 150578.gromit 1 09:00:00  guessed on time - forgot to record when available. run was successful :-)
+analysis/ISH2019_bowtieLibraryBuilder.pbs 20191228:22:57:00 151509.gromit 16 00:00:00 failing on incorrect filename for tgz files
+analysis/ISH2019_bowtieLibraryBuilder.pbs 20191228:23:12:00 151512.gromit 16 00:04:32 success on eukaryotic rDNA Library
+analysis/ISH2019_bowtieLibraryBuilder.pbs 20191228:23:17:00 151513.gromit 16 00:10:00 success on euk and arch rDNA; prok failed
+analysis/ISH2019_bowtieLibraryBuilder.pbs 20191229:08:50:00 151514.gromit 16 00:00:00 prok failed again
+analysis/ISH2019_bowtieLibraryBuilder.pbs 20191229:13:16:00 151520.gromit 16 00:01:00 updated tar to use for loop; that worked but the fasta files weren't liked by bowtie build
+analysis/ISH2019_bowtieLibraryBuilder.pbs 20191229:15:16:00 151523.gromit 16 01:40:00 manually merged prok files into single prokaryote.tgz file - success!
+analysis/ISH2019_bowtieFilter.pbs 20191230:20:08:00 151817.gromit 16  00:00:00  failed with many issues in parsing filenames; have adjusted
+analysis/ISH2019_bowtieFilter.pbs 20191230:20:20:00 151819.gromit 16  00:00:02  failed again with expression expansion; have adjusted
+analysis/ISH2019_bowtieFilter.pbs 20191230:20:27:00 151821.gromit 16  00:02:53  failed to call bowtie (forgot the 2); otherwise seemed to work
+analysis/ISH2019_bowtieFilter.pbs 20191230:21:01:00 151823.gromit 16  00:01:58  called bowtie2 but got error: /usr/bin/env: perl: No such file or directory; include perl in module load?
+analysis/ISH2019_bowtieFilter.pbs 20191230:21:58:00 151825.gromit 16  00:00:57  bowtie2 call worked (with perl need); syntax error in calling the alignment type; updated
+analysis/ISH2019_bowtieLibraryBuilder.pbs 20191231:08:35:00 151860.gromit 16  00:54:00  ran successfully to make camel, carp, and mosaic virus Libraries
+analysis/ISH2019_bowtieFilter.pbs 20191231:10:03:00 151998.gromit 16  00:02:32 ran alignments but somehow the output files are not being created... this affects my looping of multiple filters
+analysis/ISH2019_bowtieFilter.pbs 20191231:10:30:00 152074.gromit 16  00:02:46 debugging run to view file system as it processes
+analysis/ISH2019_bowtieFilter.pbs 20191231:10:49:00 152081.gromit 16  00:02:15 rerun fixing file calls and adding more helper text
+analysis/ISH2019_bowtieFilter.pbs 20191231:11:07:00 152082.gromit 16  00:01:43 trying single bowtie run instead of 2 - it worked!
+analysis/ISH2019_bowtieFilter.pbs 20191231:11:23:00 152085.gromit 16  02:17:31  ran successfully; repeat on remaining libraries; roughly 20hr walltime
+analysis/ISH2019_bowtieFilter.pbs 20191231:15:08:00 152231.gromit 16  10:00:00  approx time, ran successfully; data transfered to "Results - bowtieFilter" tab of https://docs.google.com/spreadsheets/d/1ziQ2TpJJPj-u30HOusxc4tEuFUQecdhPUkBRYEDc5gc/edit#gid=454615243

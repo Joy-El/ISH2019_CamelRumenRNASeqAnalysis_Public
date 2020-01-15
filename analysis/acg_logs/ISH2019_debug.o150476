@@ -1,0 +1,10 @@
+passed PBS directives
+passed module FASTQC load
+passed module trimmomatic load
+passed module load
+attempting to make directory:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/fastqc_pre-trim/
+passed definition of constants
+trap: usage: trap [-lp] [[arg] signal_spec ...]
+/var/spool/torque/mom_priv/jobs/150476.gromit.SC: line 86: TERM: command not found
+passed creation of tmpdir and trap

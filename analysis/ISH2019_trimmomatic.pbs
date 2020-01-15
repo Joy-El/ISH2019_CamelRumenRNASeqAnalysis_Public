@@ -1,0 +1,72 @@
+#!/bin/bash -l
+#####################
+#                   #
+#  PBS directives   #
+#                   #
+#####################
+#PBS -q skylake
+#PBS -l procs=1
+#PBS -l walltime=10:00:00
+#PBS -N ISH2019_trim
+#PBS -o acg_logs/${PBS_JOBNAME}.o${PBS_JOBID%.*} # jobID number only
+#PBS -j oe                                       # combine std_err with std_out
+#PBS -m abe                                      # send email at abort, begin, and end (for longer programs)
+#PBS -M joy-el@irisdatasolutions.co              # where to send emails
+
+
+#####################
+#                   #
+#  Load Modules     #
+#                   #
+#####################
+module load fastqc/0.11.7
+module load java/1.8.0.101
+module load trimmomatic/0.36
+
+
+#####################
+#                   #
+#  Setup logging    #
+#                   #
+#####################
+cd $PBS_O_WORKDIR
+logfile="$PBS_O_WORKDIR/acg_logs/${PBS_JOBID%.*}.$PBS_JOBNAME.log"
+echo "Starting Script: $(date)" &>> $logfile
+
+#####################
+#                   #
+#  Setup TMPDIR     #
+#                   #
+#####################
+tmpdir="/scratch/$PBS_JOBID"
+export tmpdir # make it an environmental variable reached by all scripts
+mkdir $tmpdir &>> $logfile
+
+# set trap for aborted jobs to copy temp files to a local folder
+#trap "cd $PBS_O_WORKDIR;mkdir $PBS_JOBID;cp -R ${tmpdir}/* $PBS_JOBID;rm -rf $tmpdir"; term
+# commenting out trap since it fails anyway...
+
+################################################################################
+#                                                                              #
+# Run Scripts                                                                  #
+#                                                                              #
+################################################################################
+
+# print job details
+source ../src/printPBSDetails.sh &>> $logfile
+
+# set variables
+source variables/trimFQVariables.sh &>> $logfile
+
+# run trimming pipeline
+source ../src/trimFQ.sh &>> $logfile
+
+
+#####################
+#                   #
+# Cleanup tmpdir    #
+#                   #
+#####################
+rm -rf $tmpdir
+echo "Finished Script: $(date)" &>> $logfile
+exit

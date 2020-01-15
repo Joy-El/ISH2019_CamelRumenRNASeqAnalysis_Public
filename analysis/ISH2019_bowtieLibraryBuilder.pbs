@@ -1,0 +1,78 @@
+#!/bin/bash -l
+#####################
+#                   #
+#  PBS directives   #
+#                   #
+#####################
+#PBS -q skylake
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=4:00:00
+#PBS -N ISH2019_buildLib
+#PBS -o acg_logs/${PBS_JOBNAME}.o${PBS_JOBID%.*} # jobID number only
+#PBS -j oe                                       # combine std_err with std_out
+#PBS -m abe                                      # send email at abort, begin, and end (for longer programs)
+#PBS -M joy-el@irisdatasolutions.co              # where to send emails
+
+
+#####################
+#                   #
+#  Load Modules     #
+#                   #
+#####################
+module load Bowtie2/2.3.4.3
+
+
+#####################
+#                   #
+#  Setup logging    #
+#                   #
+#####################
+cd $PBS_O_WORKDIR
+logfile="$PBS_O_WORKDIR/acg_logs/${PBS_JOBID%.*}.$PBS_JOBNAME.log"
+echo "Starting Script: $(date)" &>> $logfile
+
+#####################
+#                   #
+#  Setup TMPDIR     #
+#                   #
+#####################
+tmpdir="/scratch/$PBS_JOBID"
+export tmpdir # make it an environmental variable reached by all scripts
+mkdir $tmpdir &>> $logfile
+
+# set trap for aborted jobs to copy temp files to a local folder
+#trap "cd $PBS_O_WORKDIR;mkdir $PBS_JOBID;cp -R ${tmpdir}/* $PBS_JOBID;rm -rf $tmpdir"; term
+# commenting out trap since it fails anyway...
+
+################################################################################
+#                                                                              #
+# Run Scripts                                                                  #
+#                                                                              #
+################################################################################
+
+# print job details
+source ../src/printPBSDetails.sh &>> $logfile
+
+#  Build Bowtie2 Libraries - enter integers below to run             #
+#  ex: source ../src/buildBowtieLibraries.sh 1 2 &>> $logfile        #
+#   to build rDNA of Eukaryotes (1) and Prokaryotes (2)              #
+#    1) rDNA of Eukaryotes                                           #
+#    2) rDNA of Prokaryotes                                          #
+#    3) rDNA of Archaea                                              #
+#    4) Camel Genome                                                 #
+#    5) Carp Genome                                                  #
+#    6) Alfalfa & Cucumber mosaic virus                              #
+#    7) Camel metagenome                                             #
+#                                                                    #
+
+source ../src/buildBowtieLibraries.sh 4 5 6 &>> $logfile
+
+
+#####################
+#                   #
+# Cleanup tmpdir    #
+#                   #
+#####################
+rm -rf $tmpdir
+echo "Finished Script: $(date)" &>> $logfile
+exit

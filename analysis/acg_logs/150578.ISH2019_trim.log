@@ -1,0 +1,956 @@
+Starting Script: Tue Dec 17 14:21:22 EST 2019
+------------------------------------------------------
+Job is running on node n250.cluster
+------------------------------------------------------
+PBS: qsub is running on viz3.acg.maine.edu
+PBS: executing queue is skylake
+PBS: working directory is /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+PBS: job identifier is 150578.gromit
+PBS: job name is ISH2019_trim
+PBS: node file is /var/spool/torque/aux//150578.gromit
+PBS: current home directory is /home/jtalbot
+PBS: PATH = /opt/modules/centos7/netcdf/intel-2016/bin:/opt/modules/centos7/mvapich2/2.1/intel-2016.0.109/bin:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/mpirt/bin/intel64:/opt/modules/centos7/intel/compilers_and_libraries_2016.0.109/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/opt/modules/universal/ferret/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/jtalbot/bin
+PBS: tempdir = /scratch/150578.gromit
+------------------------------------------------------
+*************************************************************************
+Variable Definition for:
+    - src/trimFQ.sh
+*************************************************************************
+
+Input Files
+R1 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_11.1_R1.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_20.2_R1.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_21.5_R1.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_22.3_R1.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_23.6_R1.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_25.4_R1.fastq.gz
+
+R2 FASTQ files:
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_11.1_R2.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_20.2_R2.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_21.5_R2.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_22.3_R2.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_23.6_R2.fastq.gz
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/raw_sequences/HI.3512.003.Index_25.4_R2.fastq.gz
+
+Output Folders
+First FASTQC Run: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/fastqc_pre-trim/
+Trimmed FASTQ: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/trimmed/
+Second FASTQC Run: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../results/fastqc_post-trim/
+
+Trimmomatic Details
+Location of adapter FASTA: /nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis/../data/TruSeq3-PE-2.fa
+Trimmomatic Variables:
+ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+
+
+************************************************************************
+Starting FASTQ file processing
+************************************************************************
+
+Transferring files from Working Directory to node's local directory
+/nfs3-home/jtalbot/ISH2019_CamelRumenRNASeqAnalysis/analysis
+move to /scratch/150578.gromit
+/scratch/150578.gromit
+Files in node work directory:
+total 0
+
+Adding input files:
+Files in node work directory: 
+total 38478224
+-rw-r--r-- 1 jtalbot sfa 3770707831 Dec 17 14:21 HI.3512.003.Index_11.1_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3326966068 Dec 17 14:21 HI.3512.003.Index_20.2_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3126322602 Dec 17 14:21 HI.3512.003.Index_21.5_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 2930698027 Dec 17 14:21 HI.3512.003.Index_22.3_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3715996257 Dec 17 14:21 HI.3512.003.Index_23.6_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 2786072428 Dec 17 14:21 HI.3512.003.Index_25.4_R1.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3766530166 Dec 17 14:22 HI.3512.003.Index_11.1_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3310060398 Dec 17 14:22 HI.3512.003.Index_20.2_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3133538211 Dec 17 14:22 HI.3512.003.Index_21.5_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 2938178771 Dec 17 14:22 HI.3512.003.Index_22.3_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 3808254113 Dec 17 14:22 HI.3512.003.Index_23.6_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa 2749839210 Dec 17 14:22 HI.3512.003.Index_25.4_R2.fastq.gz
+-rw-r--r-- 1 jtalbot sfa        259 Dec 17 14:22 TruSeq3-PE-2.fa
+
+Looping through FASTQ files
+
+List of files: HI.3512.003.Index_11.1_R1.fastq.gz
+HI.3512.003.Index_20.2_R1.fastq.gz
+HI.3512.003.Index_21.5_R1.fastq.gz
+HI.3512.003.Index_22.3_R1.fastq.gz
+HI.3512.003.Index_23.6_R1.fastq.gz
+HI.3512.003.Index_25.4_R1.fastq.gz
+
+Processing sample: HI.3512.003.Index_11.1
+  Item 1: count of reads pre-trim
+  Item 2: FASTQC pre-trim
+Started analysis of HI.3512.003.Index_11.1_R1.fastq
+Approx 5% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 10% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 15% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 20% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 25% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 30% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 35% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 40% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 45% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 50% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 55% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 60% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 65% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 70% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 75% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 80% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 85% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 90% complete for HI.3512.003.Index_11.1_R1.fastq
+Approx 95% complete for HI.3512.003.Index_11.1_R1.fastq
+Analysis complete for HI.3512.003.Index_11.1_R1.fastq
+Started analysis of HI.3512.003.Index_11.1_R2.fastq
+Approx 5% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 10% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 15% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 20% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 25% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 30% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 35% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 40% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 45% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 50% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 55% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 60% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 65% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 70% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 75% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 80% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 85% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 90% complete for HI.3512.003.Index_11.1_R2.fastq
+Approx 95% complete for HI.3512.003.Index_11.1_R2.fastq
+Analysis complete for HI.3512.003.Index_11.1_R2.fastq
+  Item 3: Trim Adapters & Low Qual Reads
+TrimmomaticPE: Started with arguments:
+ HI.3512.003.Index_11.1_R1.fastq HI.3512.003.Index_11.1_R2.fastq trimmed.paired.HI.3512.003.Index_11.1_R1.fq trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq trimmed.paired.HI.3512.003.Index_11.1_R2.fq trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 47794714 Both Surviving: 42222006 (88.34%) Forward Only Surviving: 5474724 (11.45%) Reverse Only Surviving: 66550 (0.14%) Dropped: 31434 (0.07%)
+TrimmomaticPE: Completed successfully
+  Item 4: FASTQC post-trim
+Started analysis of trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Approx 100% complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_11.1_R1.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_11.1_R1.fq
+Started analysis of trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Approx 100% complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_11.1_R2.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_11.1_R2.fq
+  Item 5: count of reads post-trim
+  Item 6: zip files & cleanup
+Processing sample: HI.3512.003.Index_20.2
+  Item 1: count of reads pre-trim
+  Item 2: FASTQC pre-trim
+Started analysis of HI.3512.003.Index_20.2_R1.fastq
+Approx 5% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 10% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 15% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 20% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 25% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 30% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 35% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 40% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 45% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 50% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 55% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 60% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 65% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 70% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 75% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 80% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 85% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 90% complete for HI.3512.003.Index_20.2_R1.fastq
+Approx 95% complete for HI.3512.003.Index_20.2_R1.fastq
+Analysis complete for HI.3512.003.Index_20.2_R1.fastq
+Started analysis of HI.3512.003.Index_20.2_R2.fastq
+Approx 5% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 10% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 15% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 20% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 25% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 30% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 35% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 40% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 45% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 50% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 55% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 60% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 65% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 70% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 75% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 80% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 85% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 90% complete for HI.3512.003.Index_20.2_R2.fastq
+Approx 95% complete for HI.3512.003.Index_20.2_R2.fastq
+Analysis complete for HI.3512.003.Index_20.2_R2.fastq
+  Item 3: Trim Adapters & Low Qual Reads
+TrimmomaticPE: Started with arguments:
+ HI.3512.003.Index_20.2_R1.fastq HI.3512.003.Index_20.2_R2.fastq trimmed.paired.HI.3512.003.Index_20.2_R1.fq trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq trimmed.paired.HI.3512.003.Index_20.2_R2.fq trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 42284558 Both Surviving: 36544750 (86.43%) Forward Only Surviving: 5654840 (13.37%) Reverse Only Surviving: 56427 (0.13%) Dropped: 28541 (0.07%)
+TrimmomaticPE: Completed successfully
+  Item 4: FASTQC post-trim
+Started analysis of trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_20.2_R1.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_20.2_R1.fq
+Started analysis of trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_20.2_R2.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_20.2_R2.fq
+  Item 5: count of reads post-trim
+  Item 6: zip files & cleanup
+Processing sample: HI.3512.003.Index_21.5
+  Item 1: count of reads pre-trim
+  Item 2: FASTQC pre-trim
+Started analysis of HI.3512.003.Index_21.5_R1.fastq
+Approx 5% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 10% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 15% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 20% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 25% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 30% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 35% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 40% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 45% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 50% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 55% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 60% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 65% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 70% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 75% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 80% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 85% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 90% complete for HI.3512.003.Index_21.5_R1.fastq
+Approx 95% complete for HI.3512.003.Index_21.5_R1.fastq
+Analysis complete for HI.3512.003.Index_21.5_R1.fastq
+Started analysis of HI.3512.003.Index_21.5_R2.fastq
+Approx 5% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 10% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 15% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 20% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 25% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 30% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 35% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 40% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 45% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 50% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 55% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 60% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 65% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 70% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 75% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 80% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 85% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 90% complete for HI.3512.003.Index_21.5_R2.fastq
+Approx 95% complete for HI.3512.003.Index_21.5_R2.fastq
+Analysis complete for HI.3512.003.Index_21.5_R2.fastq
+  Item 3: Trim Adapters & Low Qual Reads
+TrimmomaticPE: Started with arguments:
+ HI.3512.003.Index_21.5_R1.fastq HI.3512.003.Index_21.5_R2.fastq trimmed.paired.HI.3512.003.Index_21.5_R1.fq trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq trimmed.paired.HI.3512.003.Index_21.5_R2.fq trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 40310932 Both Surviving: 34469597 (85.51%) Forward Only Surviving: 5765341 (14.30%) Reverse Only Surviving: 49878 (0.12%) Dropped: 26116 (0.06%)
+TrimmomaticPE: Completed successfully
+  Item 4: FASTQC post-trim
+Started analysis of trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_21.5_R1.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_21.5_R1.fq
+Started analysis of trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_21.5_R2.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_21.5_R2.fq
+  Item 5: count of reads post-trim
+  Item 6: zip files & cleanup
+Processing sample: HI.3512.003.Index_22.3
+  Item 1: count of reads pre-trim
+  Item 2: FASTQC pre-trim
+Started analysis of HI.3512.003.Index_22.3_R1.fastq
+Approx 5% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 10% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 15% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 20% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 25% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 30% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 35% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 40% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 45% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 50% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 55% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 60% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 65% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 70% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 75% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 80% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 85% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 90% complete for HI.3512.003.Index_22.3_R1.fastq
+Approx 95% complete for HI.3512.003.Index_22.3_R1.fastq
+Analysis complete for HI.3512.003.Index_22.3_R1.fastq
+Started analysis of HI.3512.003.Index_22.3_R2.fastq
+Approx 5% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 10% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 15% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 20% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 25% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 30% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 35% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 40% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 45% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 50% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 55% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 60% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 65% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 70% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 75% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 80% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 85% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 90% complete for HI.3512.003.Index_22.3_R2.fastq
+Approx 95% complete for HI.3512.003.Index_22.3_R2.fastq
+Analysis complete for HI.3512.003.Index_22.3_R2.fastq
+  Item 3: Trim Adapters & Low Qual Reads
+TrimmomaticPE: Started with arguments:
+ HI.3512.003.Index_22.3_R1.fastq HI.3512.003.Index_22.3_R2.fastq trimmed.paired.HI.3512.003.Index_22.3_R1.fq trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq trimmed.paired.HI.3512.003.Index_22.3_R2.fq trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 37679831 Both Surviving: 31018885 (82.32%) Forward Only Surviving: 6567983 (17.43%) Reverse Only Surviving: 47403 (0.13%) Dropped: 45560 (0.12%)
+TrimmomaticPE: Completed successfully
+  Item 4: FASTQC post-trim
+Started analysis of trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_22.3_R1.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_22.3_R1.fq
+Started analysis of trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_22.3_R2.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_22.3_R2.fq
+  Item 5: count of reads post-trim
+  Item 6: zip files & cleanup
+Processing sample: HI.3512.003.Index_23.6
+  Item 1: count of reads pre-trim
+  Item 2: FASTQC pre-trim
+Started analysis of HI.3512.003.Index_23.6_R1.fastq
+Approx 5% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 10% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 15% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 20% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 25% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 30% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 35% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 40% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 45% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 50% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 55% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 60% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 65% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 70% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 75% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 80% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 85% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 90% complete for HI.3512.003.Index_23.6_R1.fastq
+Approx 95% complete for HI.3512.003.Index_23.6_R1.fastq
+Analysis complete for HI.3512.003.Index_23.6_R1.fastq
+Started analysis of HI.3512.003.Index_23.6_R2.fastq
+Approx 5% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 10% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 15% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 20% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 25% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 30% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 35% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 40% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 45% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 50% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 55% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 60% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 65% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 70% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 75% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 80% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 85% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 90% complete for HI.3512.003.Index_23.6_R2.fastq
+Approx 95% complete for HI.3512.003.Index_23.6_R2.fastq
+Analysis complete for HI.3512.003.Index_23.6_R2.fastq
+  Item 3: Trim Adapters & Low Qual Reads
+TrimmomaticPE: Started with arguments:
+ HI.3512.003.Index_23.6_R1.fastq HI.3512.003.Index_23.6_R2.fastq trimmed.paired.HI.3512.003.Index_23.6_R1.fq trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq trimmed.paired.HI.3512.003.Index_23.6_R2.fq trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 49192074 Both Surviving: 38751742 (78.78%) Forward Only Surviving: 10352731 (21.05%) Reverse Only Surviving: 49536 (0.10%) Dropped: 38065 (0.08%)
+TrimmomaticPE: Completed successfully
+  Item 4: FASTQC post-trim
+Started analysis of trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_23.6_R1.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_23.6_R1.fq
+Started analysis of trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_23.6_R2.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_23.6_R2.fq
+  Item 5: count of reads post-trim
+  Item 6: zip files & cleanup
+Processing sample: HI.3512.003.Index_25.4
+  Item 1: count of reads pre-trim
+  Item 2: FASTQC pre-trim
+Started analysis of HI.3512.003.Index_25.4_R1.fastq
+Approx 5% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 10% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 15% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 20% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 25% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 30% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 35% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 40% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 45% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 50% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 55% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 60% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 65% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 70% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 75% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 80% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 85% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 90% complete for HI.3512.003.Index_25.4_R1.fastq
+Approx 95% complete for HI.3512.003.Index_25.4_R1.fastq
+Analysis complete for HI.3512.003.Index_25.4_R1.fastq
+Started analysis of HI.3512.003.Index_25.4_R2.fastq
+Approx 5% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 10% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 15% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 20% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 25% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 30% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 35% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 40% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 45% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 50% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 55% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 60% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 65% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 70% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 75% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 80% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 85% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 90% complete for HI.3512.003.Index_25.4_R2.fastq
+Approx 95% complete for HI.3512.003.Index_25.4_R2.fastq
+Analysis complete for HI.3512.003.Index_25.4_R2.fastq
+  Item 3: Trim Adapters & Low Qual Reads
+TrimmomaticPE: Started with arguments:
+ HI.3512.003.Index_25.4_R1.fastq HI.3512.003.Index_25.4_R2.fastq trimmed.paired.HI.3512.003.Index_25.4_R1.fq trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq trimmed.paired.HI.3512.003.Index_25.4_R2.fq trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq ILLUMINACLIP:TruSeq3-PE-2.fa:2:12:6 LEADING:10 TRAILING:10 SLIDINGWINDOW:5:16 MINLEN:30
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 35571633 Both Surviving: 30174339 (84.83%) Forward Only Surviving: 5325281 (14.97%) Reverse Only Surviving: 47932 (0.13%) Dropped: 24081 (0.07%)
+TrimmomaticPE: Completed successfully
+  Item 4: FASTQC post-trim
+Started analysis of trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_25.4_R1.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_25.4_R1.fq
+Started analysis of trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 5% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 10% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 15% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 20% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 25% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 30% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 35% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 40% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 45% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 50% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 55% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 60% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 65% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 70% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 75% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 80% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 85% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 90% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Approx 95% complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Analysis complete for trimmed.paired.HI.3512.003.Index_25.4_R2.fq
+Started analysis of trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 5% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 10% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 15% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 20% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 25% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 30% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 35% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 40% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 45% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 50% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 55% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 60% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 65% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 70% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 75% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 80% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 85% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 90% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Approx 95% complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+Analysis complete for trimmed.unpaired.HI.3512.003.Index_25.4_R2.fq
+  Item 5: count of reads post-trim
+  Item 6: zip files & cleanup
+
+************************************************************************
+Finished processing FASTQ files
+************************************************************************
+
+Copying remaining files back to working directory
